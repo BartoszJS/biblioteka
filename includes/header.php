@@ -10,10 +10,10 @@
             </div>
         </label>
         <ul class="navigatione">
-            <a class="active" href="czytelnicy.php"><li><i class="fa fa-search"></i> <br> Zarządzanie <br> czytelnikami </li> </a>
-            <a class="active" href="ksiazki.php"><li> <i class="fa fa-plus"></i>  <br> Zarządzanie <br> ksiązkami </li> </a>
-            <li><br> <?= $nazwa ?> <br>
-            <a class="active" href="logout.php"><i class="fa fa-search"></i> Wyloguj sie  </li> </a>
+            <li class="li1"><a class="active" href="czytelnicy.php"> Zarządzanie czytelnikami  </a></li>
+            <li class="li1"><a class="active" href="ksiazki.php">  Zarządzanie ksiązkami </a></li> 
+            <li class="li2"> <span><?= $nazwa ?></span> <br>
+            <a class="active" href="logout.php">Wyloguj sie   </a></li>
             
         </ul>
 

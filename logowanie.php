@@ -1,10 +1,12 @@
 <?php
-declare(strict_types = 1);                               // Use strict types
-use PhpBook\Validate\Validate;                           // Import Validate class
+                         // Import Validate class
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
 include 'src/validate.php';
 
+$errors['login']    ='';
+$errors['haslo']    ='';
+$errors['warning'] ='';
 
 ?>
 
@@ -17,8 +19,7 @@ include 'src/validate.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Logowanie</title>
-
-    <?php include 'includes/header.php'; ?>    
+ 
 </head>
 <body >
 <div class="body">
@@ -29,7 +30,7 @@ include 'src/validate.php';
     <section class="formularz">
     <div class="ramka">
       <br>
-      <h1>Logowanie</h1> <br>
+      <h1>Logowanie</h1> 
 <br>
 
 <?php if ($errors['warning']) { ?>
@@ -37,10 +38,10 @@ include 'src/validate.php';
       <?php } ?>
 
         <div class="form-group">
-          <label for="title">  E-mail: </label> <br>
-          <input type="text" name="email" id="email" value=""
+          <label for="title">  Login: </label> <br>
+          <input type="text" name="login" id="login" value=""
                  class="form-control">
-                 <span class="errors"><?= $errors['email'] ?></span>
+                 <span class="errors"><?= $errors['login'] ?></span>
         </div><br>
 
         <div class="form-group">
@@ -53,10 +54,6 @@ include 'src/validate.php';
         <div class="loginbutton">
         <input type="submit" name="update" class="btndodaj" value="ZALOGUJ SIĘ" class="btn btn-primary">
         <br><br>
-        </div>
-        <div class="utworz">
-            <span >Nie masz konta?</span>
-            <a href="rejestracja.php">Utwórz konto</a>
         </div>
         <br>
 

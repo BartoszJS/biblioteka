@@ -11,7 +11,7 @@
     border: none;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    /* background-color: white; */
+    /* background-color: #674400; */
    
  
  }
@@ -40,9 +40,32 @@
     margin: 0 auto;
 
  
-
-    
  }
+
+
+ .navigatione li span:hover {
+   /* background: #674400;
+   transition: .3s;
+   cursor: pointer; */
+}
+.navigatione li .active:hover {
+   background: #674400;
+   transition: .3s;
+   cursor: pointer;
+}
+
+.navigatione .active:hover {
+   background: #674400;
+   transition: .3s;
+   cursor: pointer;
+   
+}
+
+.logo_container h1:hover {
+   background: #674400;
+   transition: .3s;
+   cursor: pointer;
+}
 
  
  .logo_container {
@@ -55,10 +78,15 @@
  }
  
  .navigatione {
-    /* border: solid black;  */
     float: right;
     height: 100%;
-    font-size: 40px;
+
+ }
+ .navigatione .li1:hover{
+    background-color: #674400;
+    transition: .3s;
+    border-radius: 5px 5px 5px 5px;
+
  }
 
  .navigatione li {
@@ -67,14 +95,14 @@
     float: left;
     padding-right: 10px;
     padding-left: 10px;
-    padding-top: 9px;
+    padding-top: 28px;
     width: 180px;
     height: 100%;
     color: wheat;
-    border-radius: 80px;
     border: 1px solid #232323;
     font-size: 16px;
     text-align: center;
+   
 
  }
  .navigatione li a{
@@ -86,6 +114,120 @@
  }
 
 
-
+ footer {
+   font-size: 0.8rem;
+   text-align: right;
+   color: rgb(0, 0, 0);
+   padding: 10px;
+   clear: both;
+   padding-top: 50px;
+}
+footer a{
+   color: #674400;
+}
 
  /* header koniec*/
+ /* logowanie*/
+
+
+ .formularz{
+   color: #674400;
+   background-color: rgb(255, 246, 230);
+   text-align: center;
+   margin: auto;
+   width: 25%;
+   font-size: 18px;
+}
+
+.formularz .ramka h1{
+   color: #674400;
+   font-weight: 600;
+}
+
+.edytuj{
+  text-align: center;
+  padding-left: auto;
+  padding-right: auto;
+  /* border: 2px solid white; */
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  width: 40%;
+  height: 200px;
+  padding-bottom: 20px;
+  
+}
+
+.edytuj .image-edytuj{
+  height: 400px;
+  width: 100%;
+  border-radius: 1%;
+  box-shadow: var(--box-shadow);
+  border-radius: 1%;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
+  padding-top: 25px;
+;
+}
+
+
+.form-control {
+   display: block;
+   width: 100%;
+   height: calc(2.25rem + 2px);
+   padding: .375rem .75rem;
+   font-size: 1rem;
+   line-height: 1.5;
+   background-clip: padding-box;
+   border-radius: .25rem;
+   box-shadow: 3px 3px 7px rgb(39, 39, 39);
+   background-color: #000000;
+   color: #674400;
+}
+
+.form-group{
+   text-align: left;
+}
+
+
+
+.btndodaj{
+  color: wheat;
+  font-size: 18px;
+  background: #674400;;
+  /* display: inline-block;
+  width: min-content;
+  white-space: nowrap; */
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px;
+  line-height: 1.7;
+  
+  text-transform: uppercase;
+  text-align: right;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 600;
+  
+ 
+}
+
+
+.loginbutton{
+    text-align: right;
+    padding-right: 20px;
+}
+
+.utworz{
+    padding-left: 20px;
+    font-size: 16px;
+    text-align: left;
+    padding-top: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.utworz a{
+    font-weight: 600;
+    color: #e7c800;
+}
+
+ /* logowanie koniec*/
