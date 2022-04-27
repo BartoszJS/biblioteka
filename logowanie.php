@@ -52,8 +52,6 @@ $data['errors']     = $errors;
 
 ?>
 
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">

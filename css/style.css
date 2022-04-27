@@ -36,13 +36,13 @@
    width: 100%;
    height: 20px;
    display: block;
-   background-color: #000000;
+   background-color: #452e00;
    position: fixed;
    box-shadow: var(--box-shadow);
    z-index: 10000;
 }
 .gora .nazwa{
-   color: white;
+   color: wheat;
    float: right;
    font-size: 14;
    padding-right: 20px;
@@ -237,10 +237,11 @@ footer a{
   text-transform: uppercase;
   text-align: right;
   border-radius: 5px 5px 5px 5px;
-  font-weight: 600;
+  font-weight: 400;
   
  
 }
+
 
 
 .loginbutton{
@@ -341,13 +342,44 @@ footer a{
       text-transform: uppercase;
       text-align: right;
       border-radius: 5px 5px 5px 5px;
-      font-weight: 600;
+      font-weight: 400;
       clear: both;
       width: 6%;
+      height: 40px;
       
      
    
 }
+
+.dodajbutton{
+   float: right;
+   padding-right: 10%;
+   padding-bottom: 25px;
+}
+
+.btndodaj{
+   color: white;
+   font-size: 22px;
+   background: #533200;;
+   /* display: inline-block;
+   width: min-content;
+   white-space: nowrap; */
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 5px;
+   line-height: 1.7;
+   
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   clear: both;
+   width: 100%;
+   float: right;
+  
+
+}
+
 
 
 
@@ -372,9 +404,10 @@ footer a{
  }
 
  .czytelnicy .przyciski{
-    padding-top: 10px;
+    padding-top: 15px;
     padding-left: 58%;
  }
+
 
 
  .czytelnicy .ramkaczytelnicy{
@@ -388,9 +421,15 @@ footer a{
  }
 
  .czytelnicy h1{
-    text-align: center;
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid #452e00;
+    clear: both;
+ }
+ .czytelnicy .ramkaczytelnicy{
+   clear: both;
  }
 
 
@@ -399,6 +438,7 @@ footer a{
    float: left;
    font-size: 20px;
    padding-right: 20px;
+   
 
 
  }
@@ -410,6 +450,43 @@ padding-bottom: none;
 
 
  }
+ .czytelnicy .szukaj{
+   float: left;
+   width: 60%;
+   padding-bottom: none;
+   padding-left: 30px;
+    }
+
+    .btnszukajo{
+      color: white;
+      font-size: 22px;
+      background: #533200;;
+      text-transform: uppercase;
+      text-align: center;
+      border-radius: 5px 5px 5px 5px;
+      font-weight: 400;
+      width: 20%;
+      height: 40px;
+      vertical-align: middle;
+   
+     
+   
+   }
+
+    .czytelnicy .form-search input[type=text] {
+      font-size: 18px;
+      line-height: 1.6;
+      vertical-align: middle;
+      border-right: none;
+      color: wheat;
+      border-radius: 4px 0 0 4px;
+      width: 60%;
+      background-color: #452e00;
+      padding: 5px;
+      padding-left: 20px;
+   }
+
+
 
 
 

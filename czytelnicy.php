@@ -3,6 +3,7 @@ include 'src/bootstrap.php';
 include 'src/database-connection.php'; 
 include 'src/validate.php';
 
+
 $sql="SELECT ID,Imie,Nazwisko,Numer_Telefonu,Adres_Email
     FROM czytelnik
     order by id desc;";
@@ -26,9 +27,23 @@ $czytelnicy = pdo($pdo,$sql)->fetchAll();
 <body>
 <br><br>
 <div class="czytelnicy">
+
     <div class="ramka1">
-    <br><br>
-    <h1>Wszyscy czytelnicy: </h1>
+    <h1>Czytelnicy: </h1>
+    <br>
+    <div class="szukaj">
+    <form action="oferty.php" method="get" class="form-search">
+                <label for="search"><span> </span></label>
+                <input type="text" name="term" 
+                    id="search" placeholder="Wyszukaj tutaj:"  
+                /><input type="submit" value="Szukaj" class="btnszukajo" />
+                
+        </form>
+    </div>
+    <div class="dodajbutton">
+        <a href="dodajczytelnika.php" class="btndodaj">DODAJ CZYTELNIKA</a>
+    </div> <br>
+   
         <?php foreach($czytelnicy as $pojedynczo) { ?> 
             <div class="ramkaczytelnicy">
            
@@ -43,7 +58,7 @@ $czytelnicy = pdo($pdo,$sql)->fetchAll();
                 <div class="przyciski">
                 <a href="czytelnik.php" class="btnzobacz">ZOBACZ</a> 
                     <a href="edytujczytelnika.php" class="btnzobacz">EDYTUJ</a>
-                    <a href="usunczytelnika.php" class="btnzobacz">USUN</a>
+                    <a href="usunczytelnika.php" class="btnzobacz">USUŃ</a>
                 </div>
             </div>
         <?php }?>

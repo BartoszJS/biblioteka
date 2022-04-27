@@ -1,7 +1,7 @@
 
 <header class="gora">
 
-<?php $nazwa="Imie nazwisko"; ?>
+<?php $nazwa=$_SESSION['imie']." ".$_SESSION['nazwisko']; ?>
  
             <p class="nazwa"> <span> Zalogowano : <?=" ".$nazwa ?></span> </p>
 

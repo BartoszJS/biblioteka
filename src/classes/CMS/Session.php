@@ -43,12 +43,12 @@ class Session
     // Delete existing session
     public function delete()
     {
-        $_SESSION['id'] = 0;          // Set id property of this object
-        $_SESSION['imie'] = '';   // Set imie property of this object
-        $_SESSION['nazwisko'] = '';   // Set imie property of this object
-        $_SESSION['login'] = '';   // Set imie property of this object
-        $_SESSION['nazwisko'] = '';   // Set imie property of this object
-        $_SESSION['numer_telefonu'] = '';   // Set imie property of this object
+        $_SESSION['id']       = 0; 
+        $_SESSION['login'] = '';     // Add imie to session
+        $_SESSION['haslo']     = '';          // Add member id to session
+        $_SESSION['imie'] =  '';     // Add imie to session
+        $_SESSION['nazwisko']     = '';
+        $_SESSION['numer_telefonu']     = '';
         $_SESSION['role'] = 'public';                                 // Empty $_SESSION superglobal
         $param    = session_get_cookie_params();         // Get session cookie parameters
         setcookie(session_name(), '', time() - 2400, $param['path'], $param['domain'],

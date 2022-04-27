@@ -3,6 +3,8 @@ include 'src/bootstrap.php';
 include 'src/database-connection.php'; 
 include 'src/validate.php';
 
+is_admin($session->role); 
+
 $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
     FROM ksiazki
     where dostepnosc=1   
