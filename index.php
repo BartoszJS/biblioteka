@@ -45,7 +45,11 @@ $ksiazka = pdo($pdo,$sql)->fetchAll();
                 <div class="button1">
                     <a href="ksiazka.php" class="btnzobacz" >ZOBACZ</a><br> 
                 </div>
+                
             </div>
+            <div class="przerwa">
+                    
+                </div>
         <?php }?>
         
     </div>

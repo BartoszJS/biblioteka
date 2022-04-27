@@ -3,12 +3,10 @@ include 'src/bootstrap.php';
 include 'src/database-connection.php'; 
 include 'src/validate.php';
 
-$sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-    FROM ksiazki
-    where dostepnosc=1   
-    order by id desc
-    limit 6;";
-$ksiazka = pdo($pdo,$sql)->fetchAll();
+$sql="SELECT ID,Imie,Nazwisko,Numer_Telefonu,Adres_Email
+    FROM czytelnik
+    order by id desc;";
+$czytelnicy = pdo($pdo,$sql)->fetchAll();
 
 
 ?>
@@ -27,33 +25,31 @@ $ksiazka = pdo($pdo,$sql)->fetchAll();
 </head>
 <body>
 <br><br>
-<div class="glowna">
+<div class="czytelnicy">
     <div class="ramka1">
-    
-        
-        <h1>Najnowsze ksiązki:</h1><br>
-        <?php foreach($ksiazka as $pojedynczo) { ?> 
-            <div class="ramka">
-                <div class="column">
-                    <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
-                </div> 
+    <br><br>
+    <h1>Wszyscy czytelnicy: </h1>
+        <?php foreach($czytelnicy as $pojedynczo) { ?> 
+            <div class="ramkaczytelnicy">
+           
                 <div class="tekst">
-                    <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
-                    <?= "Autor: ". $pojedynczo['autor'] ?><br>
-                    <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
+                    <div class="id">  <?= $pojedynczo['ID']; ?></div>
+                
+                    <?= $pojedynczo['Imie']; ?>
+                    <?= $pojedynczo['Nazwisko']; ?><br>
+                    <?= "Nr telefonu: ".$pojedynczo['Numer_Telefonu']; ?> <br>
+                    <?= "E-mail: ".$pojedynczo['Adres_Email']; ?>
                 </div>
-                <div class="button1">
-                    <a href="ksiazka.php" class="btnzobacz" >ZOBACZ</a><br> 
+                <div class="przyciski">
+                <a href="czytelnik.php" class="btnzobacz">ZOBACZ</a> 
+                    <a href="edytujczytelnika.php" class="btnzobacz">EDYTUJ</a>
+                    <a href="usunczytelnika.php" class="btnzobacz">USUN</a>
                 </div>
             </div>
         <?php }?>
         
     </div>
-    <div class="ramka2">
-      
-        <h1>najnowssze</h1>
-        
-    </div>
+ 
 </div>
       
 <?php include 'includes/footer.php'; ?>

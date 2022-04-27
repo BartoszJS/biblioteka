@@ -19,6 +19,17 @@
     background-color: rgb(255, 246, 230);
  }
 
+ .error {
+   color: red;
+   padding-bottom: 15px;
+}
+
+.errors {
+   color: red;
+   padding-bottom: 15px;
+}
+
+
 
  /* header */
  .gora {
@@ -189,18 +200,6 @@ footer a{
    font-weight: 600;
 }
 
-.edytuj{
-  text-align: center;
-  padding-left: auto;
-  padding-right: auto;
-  /* border: 2px solid white; */
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  width: 40%;
-  height: 200px;
-  padding-bottom: 20px;
-  
-}
 
 
 .form-control {
@@ -213,7 +212,7 @@ footer a{
    background-clip: padding-box;
    border-radius: .25rem;
    box-shadow: 3px 3px 7px rgb(39, 39, 39);
-   background-color: #000000;
+   background-color: #ffffff;
    color: #674400;
 }
 
@@ -285,7 +284,7 @@ footer a{
   
  }
  .glowna .ramka1 .column .image-resize {
-   height: 120px;
+   height: 123px;
    width: 15%;
    border-radius: 1%;
    box-shadow: var(--box-shadow);
@@ -295,12 +294,18 @@ footer a{
    object-fit: cover;
    float: left;
 }
-.ramka1 .ramka{
-   padding: 20px;
-   padding-bottom: 75px;
-   border: 1px solid black;
-   border-bottom: none;
+.glowna .ramka1 .ramka{
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   padding-bottom: 40px;  
 }
+.glowna .ramka1 .przerwa{
+
+   padding: 20px;  
+   clear: both;
+  
+}
+
 .ramka1 .ramka:last-child{
    border-bottom: 1px solid black;
 }
@@ -310,16 +315,18 @@ footer a{
    
    padding-left:25px;
    padding-top: 30px;
+
   
    width: 60%;
-   float: left;
+   float: left;;
+   font-size: 16px;
 }
 .button1{
    
-   padding-top: 35px;
+   padding-top: 45px;
 }
 
-.button1 .btnzobacz{
+.btnzobacz{
       color: white;
       font-size: 22px;
       background: #533200;;
@@ -342,10 +349,69 @@ footer a{
    
 }
 
-.ramka1 .ramka .column{
-  
-}
 
 
 
+
+ /* index koniec*/
+ /* cztelnicy*/
+
+ .czytelnicy .ramka1{
+   border: 3px solid #533200;
+   border-radius: 5px 5px 5px 5px;
+   width: 70%;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .czytelnicy{
+   width: 100%;
+   padding: 100px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .czytelnicy .przyciski{
+    padding-top: 10px;
+    padding-left: 58%;
+ }
+
+
+ .czytelnicy .ramkaczytelnicy{
+   padding: 20px;
+    width: 100%;
+   border-top: 1px solid #674400;
+   
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .czytelnicy h1{
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #452e00;
+ }
+
+
+ .czytelnicy .ramkaczytelnicy .id{
+   height: 50px;
+   float: left;
+   font-size: 20px;
+   padding-right: 20px;
+
+
+ }
+
+ .czytelnicy .tekst{
+float: left;
+width: 60%;
+padding-bottom: none;
+
+
+ }
+
+
+
+ /* cztelnicy koneic*/
  /* index koniec*/

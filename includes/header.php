@@ -16,9 +16,9 @@
             </div>
         </label>
         <ul class="navigatione">
-            <li class="li1"><a class="active" href="czytelnicy.php"> Zarządzanie czytelnikami  </a></li>
-            <li class="li1"><a class="active" href="ksiazki.php">  Zarządzanie ksiązkami </a></li> 
-            <li class="li2"><a class="active" href="logout.php">  Wyloguj sie </a></li> 
+        <a class="active" href="czytelnicy.php"> <li class="li1"> Zarządzanie czytelnikami  </li></a>
+        <a class="active" href="ksiazki.php">   <li class="li1">  Zarządzanie ksiązkami </li> </a>
+        <a class="active" href="logout.php"> <li class="li2">  Wyloguj sie </li> </a>
             
         </ul>
 
