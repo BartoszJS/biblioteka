@@ -21,17 +21,34 @@
 
 
  /* header */
-
+ .gora {
+   width: 100%;
+   height: 20px;
+   display: block;
+   background-color: #000000;
+   position: fixed;
+   box-shadow: var(--box-shadow);
+   z-index: 10000;
+}
+.gora .nazwa{
+   color: white;
+   float: right;
+   font-size: 14;
+   padding-right: 20px;
+}
 
  .header {
+    padding-top: 18px;
     width: 100%;
-    height: 100px;
+    height: 120px;
     display: block;
-    background-color: #302000;
+    background-color: #452e00;
     position: fixed;
     box-shadow: var(--box-shadow);
     border-bottom: 1px solid white;
+    z-index: 10;
  }
+
  
  .inner_header {
     width: 75%;
@@ -89,6 +106,18 @@
 
  }
 
+ .navigatione .li2:hover{
+   background-color: #674400;
+   cursor: pointer;
+   transition: .3s;
+   border-radius: 5px 5px 5px 5px;
+
+}
+ .navigatione .li3:hover{
+   cursor: auto;
+
+}
+
  .navigatione li {
     vertical-align: middle;
     display: table;
@@ -96,15 +125,31 @@
     padding-right: 10px;
     padding-left: 10px;
     padding-top: 28px;
-    width: 180px;
+    width: 200px;
     height: 100%;
     color: wheat;
     border: 1px solid #232323;
-    font-size: 16px;
+    font-size: 17px;
     text-align: center;
    
 
  }
+ .navigatione .li2{
+   vertical-align: middle;
+   display: table;
+   float: left;
+   padding-right: 10px;
+   padding-left: 10px;
+   padding-top: 28px;
+   width: 100px;
+   height: 100%;
+   color: wheat;
+   border: 1px solid #232323;
+   font-size: 17px;
+   text-align: center;
+  
+
+}
  .navigatione li a{
     color: wheat;;
    
@@ -155,19 +200,6 @@ footer a{
   height: 200px;
   padding-bottom: 20px;
   
-}
-
-.edytuj .image-edytuj{
-  height: 400px;
-  width: 100%;
-  border-radius: 1%;
-  box-shadow: var(--box-shadow);
-  border-radius: 1%;
-  overflow: hidden;
-  object-position: center center;
-  object-fit: cover;
-  padding-top: 25px;
-;
 }
 
 
@@ -231,3 +263,89 @@ footer a{
 }
 
  /* logowanie koniec*/
+
+ /* index*/
+
+
+ .glowna{
+   width: 100%;
+   padding: 100px;
+ }
+ .glowna .ramka1{
+   padding: 20px;
+    width: 45%;
+    float: left;
+    border: 2px solid #674400;
+ }
+ .glowna .ramka2{
+   padding: 30px;
+   width: 45%;
+   
+   float:  right ;
+  
+ }
+ .glowna .ramka1 .column .image-resize {
+   height: 120px;
+   width: 15%;
+   border-radius: 1%;
+   box-shadow: var(--box-shadow);
+   border-radius: 1%;
+   overflow: hidden;
+   object-position: center center;
+   object-fit: cover;
+   float: left;
+}
+.ramka1 .ramka{
+   padding: 20px;
+   padding-bottom: 75px;
+   border: 1px solid black;
+   border-bottom: none;
+}
+.ramka1 .ramka:last-child{
+   border-bottom: 1px solid black;
+}
+
+
+.ramka1 .ramka .tekst{
+   
+   padding-left:25px;
+   padding-top: 30px;
+  
+   width: 60%;
+   float: left;
+}
+.button1{
+   
+   padding-top: 35px;
+}
+
+.button1 .btnzobacz{
+      color: white;
+      font-size: 22px;
+      background: #533200;;
+      /* display: inline-block;
+      width: min-content;
+      white-space: nowrap; */
+      border: 1px solid transparent;
+      border-radius: 3px;
+      padding: 10px;
+      line-height: 1.7;
+      
+      text-transform: uppercase;
+      text-align: right;
+      border-radius: 5px 5px 5px 5px;
+      font-weight: 600;
+      clear: both;
+      width: 6%;
+      
+     
+   
+}
+
+.ramka1 .ramka .column{
+  
+}
+
+
+
+ /* index koniec*/
