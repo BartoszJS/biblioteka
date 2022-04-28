@@ -4,12 +4,6 @@ include 'src/database-connection.php';
 include 'src/validate.php';
 
 
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Validate id
-if (!$id) {     
-    header("Location: nieznaleziono.php");  
-    exit();                                         // If no valid id
-}
-
 $errors['imie']='';
 $errors['nazwisko']='';
 $errors['numer_telefonu']='';
@@ -24,17 +18,6 @@ $czytelnik['adres_email']='';
 
 
 
-$sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
-    FROM czytelnik
-    where id=:id;";
-
-$czytelnik = pdo($pdo, $sql, [$id])->fetch();    // Get article data
-if (!$czytelnik) {   
-    header("Location: nieznaleziono.php");  
-    exit();                              // Page not found
-}
-
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
@@ -45,20 +28,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
    
 
   
-    $arguments=$czytelnik;    
   
+    $sql="INSERT INTO czytelnik(imie,nazwisko,numer_telefonu,adres_email)
+    values            (:imie,:nazwisko,:numer_telefonu,:adres_email);";
   
-    $sql="UPDATE czytelnik 
-          set imie=:imie,nazwisko=:nazwisko,numer_telefonu=:numer_telefonu,adres_email=:adres_email
-          where id=:id;";
-   
+    $arguments=$czytelnik;
 
-    try{       
-      pdo($pdo,$sql,$arguments);  
-      header("Location: czytelnik.php?id=".$id); 
+    try{
+      pdo($pdo,$sql,$arguments)  ;  
+      $lastczytelnik=$pdo->lastInsertId();
+      header("Location: czytelnik.php?id=".$lastczytelnik); 
       exit();
     }catch(PDOException $e){
-      $pdo->rollBack();   
       throw $e;
     }
 
@@ -80,9 +61,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 <div class="bodylogowanie">
   <br><br><br><br>
-  <form action="edytujczytelnika.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data"> 
+  <form action="dodajczytelnika.php" method="POST" enctype="multipart/form-data"> 
   <br><br>
-  <section class="formularz">
+      <section class="formularz">
       <div class="ramka">
         <br><br>
         <h1>Dodawanie czytelnika</h1> <br>
@@ -119,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <br>
           
           <div class="loginbutton">
-          <input type="submit" name="update" class="btnloguj" value="EDYTUJ CZYTELNIKA" class="btn btn-primary">
+          <input type="submit" name="update" class="btnloguj" value="DODAJ CZYTELNIKA" class="btn btn-primary">
           <br><br>
           </div>
       

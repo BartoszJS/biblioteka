@@ -92,20 +92,21 @@ if ($count > $show) {                                     // If matches is more 
 <div class="czytelnicy">
 
     <div class="ramka1">
-    <h1>Czytelnicy: </h1>
-    <br>
-    <div class="szukaj">
-    <form action="czytelnicy.php" method="get" class="form-search">
-                <label for="search"><span> </span></label>
-                <input type="text" name="term" 
-                    id="search" placeholder="Wyszukaj tutaj:"  
-                /><input type="submit" value="Szukaj" class="btnszukajo" />
-                
-        </form>
-    </div>
-    <div class="dodajbutton">
-        <a href="dodajczytelnika.php" class="btndodaj">DODAJ CZYTELNIKA</a>
-    </div> <br>
+        
+        <h1>Czytelnicy: </h1>
+        <br>
+        <div class="szukaj">
+        <form action="czytelnicy.php" method="get" class="form-search">
+                    <label for="search"><span> </span></label>
+                    <input type="text" name="term" 
+                        id="search" placeholder="Wyszukaj tutaj:"  
+                    /><input type="submit" value="Szukaj" class="btnszukajo" />
+                    
+            </form>
+        </div>
+        <div class="dodajbutton">
+            <a href="dodajczytelnika.php" class="btndodaj">DODAJ CZYTELNIKA</a>
+        </div> <br>
    
         <?php foreach($czytelnicy as $pojedynczo) { ?> 
             <div class="ramkaczytelnicy">
@@ -120,8 +121,8 @@ if ($count > $show) {                                     // If matches is more 
                 </div>
                 <div class="przyciski">
                 <a href="czytelnik.php" class="btnzobacz">ZOBACZ</a> 
-                    <a href="edytujczytelnika.php" class="btnzobacz">EDYTUJ</a>
-                    <a href="usunczytelnika.php" class="btnzobacz">USUŃ</a>
+                    <a href="edytujczytelnika.php?id=<?= $pojedynczo['ID'] ?>" class="btnzobacz">EDYTUJ</a>
+                    <a href="usunczytelnika.php?id=<?= $pojedynczo['ID'] ?>" class="btnzobacz">USUŃ</a>
                 </div>
             </div>
         <?php }?>
