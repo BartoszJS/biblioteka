@@ -43,7 +43,6 @@
    display: block;
    background-color: #452e00;
    position: fixed;
-   box-shadow: var(--box-shadow);
    z-index: 10000;
 }
 .gora .nazwa{
@@ -370,6 +369,7 @@ footer a{
 }
 
 .btnloguj{
+   display: block;
    color: wheat;
    font-size: 22px;
    background: #533200;;
@@ -391,6 +391,7 @@ footer a{
    background: linear-gradient(217deg,#6b5000,#462e00);
 
 }
+
 
 .btnzobacz:hover{
    transition: .5s;
@@ -474,7 +475,7 @@ footer a{
 
  .czytelnicy .przyciski{
     padding-top: 15px;
-    padding-left: 58%;
+    padding-left: 75%;
  }
 
 
@@ -518,6 +519,7 @@ float: left;
 width: 60%;
 padding-bottom: none;
 padding-left: 35px;
+color: black;
 
 
  }
@@ -568,3 +570,78 @@ padding-left: 35px;
 
  /* cztelnicy koneic*/
  /* index koniec*/
+
+
+
+
+ /* ksiazki */
+
+.ksiazki{
+   padding-top: 200px;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.ksiazki .ramka{
+   width: 50%;
+   margin-left: auto;
+   margin-right: auto;
+   border: 2px solid red;
+   height: 400px;
+   float: left;
+}
+.ksiazki .ramka .rameczka{
+   border: 5px solid blue;
+}
+.ksiazki .column{
+   height: 400px;
+   width: 35%;
+   float: left;
+}
+
+.ksiazki .rameczka .column .image-resize {
+   height: 350px;
+   width: 100%;
+   border-radius: 1%;
+   box-shadow: var(--box-shadow);
+   overflow: hidden;
+   object-position: center center;
+   object-fit: cover;
+
+}
+.ksiazki .tekst{
+border: 1px solid green;
+border-top: 20px;
+padding-left: 1%;
+color: black;
+font-size: 20px;
+}
+
+.ksiazki .buttons{
+   float: right;
+   border: 4px solid yellow;
+}
+
+
+.btnksiazka{
+   display: block;
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 5px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width: 100%;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+
+}
+
+
+ /* ksiazki koniec */

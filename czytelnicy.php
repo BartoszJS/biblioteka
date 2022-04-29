@@ -109,6 +109,7 @@ if ($count > $show) {                                     // If matches is more 
         </div> <br>
    
         <?php foreach($czytelnicy as $pojedynczo) { ?> 
+            <a href="czytelnik.php?id=<?= $pojedynczo['ID'] ?>" >
             <div class="ramkaczytelnicy">
            
                 <div class="tekst">
@@ -120,11 +121,12 @@ if ($count > $show) {                                     // If matches is more 
                     <?= "E-mail: ".$pojedynczo['adres_email']; ?>
                 </div>
                 <div class="przyciski">
-                <a href="czytelnik.php" class="btnzobacz">ZOBACZ</a> 
+                
                     <a href="edytujczytelnika.php?id=<?= $pojedynczo['ID'] ?>" class="btnzobacz">EDYTUJ</a>
                     <a href="usunczytelnika.php?id=<?= $pojedynczo['ID'] ?>" class="btnzobacz">USUŃ</a>
                 </div>
             </div>
+            </a> 
         <?php }?>
         
     </div>
