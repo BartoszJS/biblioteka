@@ -141,6 +141,25 @@ if ($count > $show) {                                     // If matches is more 
 */ ?>
 
 <div class="ksiazki">
+    <h1>Książki:</h1>
+    <a href="dodajczytelnika.php" class="btnksiazka">WYPOŻYCZONE KSIĄŻKI</a>
+    <div class="ksiazkiszukaj">
+        <div class="szukaj">
+            <form action="czytelnicy.php" method="get" class="form-search">
+                    <label for="search"><span> </span></label>
+                    <input type="text" name="term" 
+                        id="search" placeholder="Wyszukaj tutaj:"  
+                    /><input type="submit" value="Szukaj" class="btnksiazka" />
+                    
+            </form>
+            </div>
+            <div class="buttony">
+            <a href="dodajczytelnika.php" class="btnksiazka">DODAJ CZYTELNIKA</a>
+            <a href="dodajczytelnika.php" class="btnksiazka">WYPOŻYCZONE KSIĄŻKI</a>
+            </div> 
+    </div>
+        
+   
 <?php foreach($ksiazki as $pojedynczo) { ?> 
     <a href="ksiazka.php?id=<?= $pojedynczo['ID'] ?>">
             <div class="ramka">
@@ -152,6 +171,7 @@ if ($count > $show) {                                     // If matches is more 
                         <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                         <?= "Autor: ". $pojedynczo['autor'] ?><br>
                         <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
+                        <?= "Liczba stron: ".$pojedynczo['liczba_stron'] ?><br>
                     </div>
                     <div class="buttons">
                         <a href="wypozyczksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">WYPOZYCZ</a> <br>
