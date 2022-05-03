@@ -194,7 +194,7 @@ footer a{
 
  .formularz{
    color: #674400;
-   background-color: rgb(255, 246, 230);
+   background-color: rgb(255, 238, 206);
    text-align: center;
    margin: auto;
    width: 25%;
@@ -202,7 +202,7 @@ footer a{
 }
 .formularzusun{
    color: #674400;
-   background-color: rgb(255, 246, 230);
+   background-color: rgb(255, 238, 206);
    text-align: center;
    margin: auto;
    width: 50%;
@@ -233,6 +233,7 @@ footer a{
    background-color: #ffffff;
    color: #674400;
 }
+
 
 .form-group{
    text-align: left;
@@ -739,16 +740,18 @@ height: 210px;
    list-style-type: none;
    margin: 0 0 2em 0;
    padding: 0;
+
 }
 
 .pagination ul li {
    display: inline-block;
+   width: 30px;
 }
 
 .pagination a.active {
    color: #ffffff;
-   border: 1px solid #000000;
-   background-color: #8d5b00;
+   border: 2px solid #ff7b00;
+   background-color: #c88200;
    padding: .1rem .5rem;
 }
 
@@ -773,3 +776,181 @@ height: 210px;
 }
 
  /* pagination koniec */
+
+
+ /* ksiazka */
+
+.ksiazka{
+
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+}
+.ksiazka .ramka{
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   box-shadow: var(--box-shadow);
+   height: 550px;
+}
+
+
+
+.ksiazka .okladka{
+   height: 500px;
+   width: 45%;
+   float: left;
+   padding-left: 20%;
+   padding-top: 20px;
+}
+
+.ksiazka .okladka .image-resize {
+   height: 100%;
+   width: 100%;
+   border-radius: 1%;
+   box-shadow: var(--box-shadow);
+   overflow: hidden;
+   object-position: center center;
+   object-fit: cover;
+   float: left;
+}
+
+.ksiazka .tekst{
+   padding-top: 40px;
+   padding-left: 47%;
+   padding-bottom: 140px;
+   font-size: 22px;
+}
+.ksiazka .buttons{
+   padding-bottom: 10px;
+   padding-left: 200px;
+   float: left;
+}
+
+.ksiazka .buttons .btnbook{
+   display: block;
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width:150px;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+
+}
+
+
+
+
+
+
+
+ /* ksiazka koneic */
+ /* wypozycz */
+
+ .wypozycz{
+   border: 1px solid red;
+   width: 80%;
+   margin-left: auto;
+   margin-right: auto;
+}
+.wypozycz .ramka{
+   border: 5px solid pink;
+   height: 550px;
+}
+
+
+
+.wypozycz .okladka{
+   height: 500px;
+   width: 30%;
+   float: left;
+   padding-left: 3%;
+   padding-top: 20px;
+   border: 2px solid green;
+}
+
+.wypozycz .okladka .image-resize {
+   height: 100%;
+   width: 100%;
+   border-radius: 1%;
+   box-shadow: var(--box-shadow);
+   overflow: hidden;
+   object-position: center center;
+   object-fit: cover;
+
+}
+
+.wypozycz .tekst{
+   border: 2px solid blue;
+   padding-top: 40px;
+   padding-left: 420px;
+
+   font-size: 22px;
+}
+.wypozycz .buttons{
+   border: 2px solid purple;
+   padding-bottom: 10px;
+   padding-right: 100px;
+   float: right;
+}
+
+.wypozycz .buttons .btnbook{
+   display: block;
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width:150px;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+
+}
+
+.form-control1 {
+   display: block;
+   width: 23%;
+   height: calc(2.25rem + 2px);
+   padding: .375rem .75rem;
+   font-size: 1rem;
+   line-height: 1.5;
+   background-clip: padding-box;
+   border-radius: .25rem;
+   box-shadow: 3px 3px 7px rgb(39, 39, 39);
+   background-color: #ffffff;
+   color: #674400;
+}
+.form-control2 {
+   display: block;
+   width: 95%;
+   height: calc(2.25rem + 2px);
+   padding: .375rem .75rem;
+   font-size: 1rem;
+   line-height: 1.5;
+   background-clip: padding-box;
+   border-radius: .25rem;
+   box-shadow: 3px 3px 7px rgb(39, 39, 39);
+   background-color: #ffffff;
+   color: #674400;
+}
+
+.czas{
+   float: left;
+}
+
+
+
+ /* wypozycz koneic */

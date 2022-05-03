@@ -16,6 +16,14 @@ $czytelnik['nazwisko']='';
 $czytelnik['numer_telefonu']='';
 $czytelnik['adres_email']='';
 
+$id=[];
+
+$sql="SELECT ID
+        FROM czytelnik
+        order by id desc
+        limit 1;";
+$last = pdo($pdo,$sql)->fetchAll();
+
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -67,7 +75,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="ramka">
         <br><br>
         <h1>Dodawanie czytelnika</h1> <br>
-
+        <?php foreach($last as $id) { ?> 
+        <p>Automatycznie przypisane id: <?=$id['ID']+1?></p> <br>
+        <?php } ?> 
 
 
           <div class="form-group">

@@ -132,7 +132,7 @@ if ($count > $show) {                                     // If matches is more 
                     <?= "Liczba stron: ".$pojedynczo['liczba_stron'] ?><br>
                 </div>
                 <div class="buttons">
-                        <a href="wypozyczksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">WYPOZYCZ</a> <br>
+                        <a href="wypozycz.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">WYPOZYCZ</a> <br>
                         <a href="edytujksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">EDYTUJ</a> <br>
                         <a href="usunksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">USUŃ</a> <br>
                       
