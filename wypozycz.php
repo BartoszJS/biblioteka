@@ -44,6 +44,7 @@ if (!$ksiazka) {
                 <img class="image-resize" src="uploads/<?= html_escape($ksiazka['okladka'] ?? 'blank.png') ?>">
             </div>
             <div class="tekst">
+            <h2>Wypożycz:</h2><br>
                 <h3>Książka:</h3>
                 <?= "ID: ".$ksiazka['id']?> <br>
                 <?= "Tytuł: ".$ksiazka['tytul']?><br>
@@ -57,7 +58,7 @@ if (!$ksiazka) {
                 <?= $_SESSION['imie'] ?>
                 <?= $_SESSION['nazwisko'] ?>
 
-                
+
                
             </div>
         <form action="potwierdzwypozyczenie.php" method="POST" enctype="multipart/form-data"> 
@@ -78,13 +79,13 @@ if (!$ksiazka) {
                     <input type="text" name="Czas" id="Czas" placeholder="Podaj liczbe dni:"  class="form-control2" value="30">
                 </div>
                 <div class="dni">
-                    <span>dni</span>
+                    <span>dni</span><br><br>
                 </div>
                
             </div>
           
                 <div class="buttons">
-                    <input type="submit" name="update" class="btnbook" value="WYPOŻYCZ"> <br>
+                    <input type="submit" name="update" class="btnbook" value="WYPOŻYCZ"> 
                         
                 </div>
         </form>  

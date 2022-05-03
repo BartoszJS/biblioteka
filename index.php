@@ -45,7 +45,7 @@ $ksiazka = pdo($pdo,$sql)->fetchAll();
                     <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
                 </div>
                 <div class="button1">
-                    <a href="ksiazka.php" class="btnzobacz" >ZOBACZ</a><br> 
+                    <a href="ksiazka.php?id=<?= $pojedynczo['id'] ?>" class="btnzobacz" >ZOBACZ</a><br> 
                 </div>
                 
             </div>

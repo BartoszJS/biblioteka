@@ -12,13 +12,32 @@ $errors['id']='';
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
-    $rent['IdPracownika']=$_POST['IdPracownika'];
-    $rent['IdCzytelnika']=$_POST['IdCzytelnika'];
-    $rent['IdKsiazki']=$_POST['IdKsiazki'];
+    $pracownik=$_POST['IdPracownika'];
+    $czytelnik=$_POST['IdCzytelnika'];
+    $ksiazka=$_POST['IdKsiazki'];
     $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
     $rent['Czas']=$_POST['Czas'];
-    
-    
+
+    $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
+    FROM ksiazki
+    where id=:ksiazka;";
+    $book = pdo($pdo, $sql, [$ksiazka])->fetch();
+
+
+    $sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
+    FROM czytelnik
+    where id=:czytelnik;";
+    $reader = pdo($pdo, $sql, [$czytelnik])->fetch();
+
+
+    $sql="SELECT id,imie,nazwisko
+    FROM pracownik
+    where id=:pracownik;";
+    $worker = pdo($pdo, $sql, [$pracownik])->fetch();
+
+   
+    $d=strtotime("+".$rent['Czas']." Days");
+    $do=date("Y-m-d", $d);
 }  
 
 ?>
@@ -40,11 +59,53 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="wypozycz">
     <div class="ramka">
             
-    <h1><?= $_POST['IdPracownika'] ?></h1>
-    <h1><?= $rent['IdCzytelnika'] ?></h1>
-    <h1><?= $rent['IdKsiazki'] ?></h1>
-    <h1><?= $rent['Data_wypozyczenia'] ?></h1>
-    <h1><?= $rent['Czas'] ?></h1>
+    <div class="okladka">
+                <img class="image-resize" src="uploads/<?= html_escape($book['okladka'] ?? 'blank.png') ?>">
+            </div>
+            <div class="tekst">
+                <h2>Potwierdzenie wypożyczenia:</h2><br>
+                <h3>Książka:</h3>
+                <?= "ID: ".$book['id']?> <br>
+                <?= "Tytuł: ".$book['tytul']?><br>
+                <?= "Autor: ".$book['autor']?> <br>
+                <?= "Gatunek: ".$book['gatunek']?> <br>
+                <?= "Liczba stron: ".$book['liczba_stron']?> <br>
+            </div>
+            <div class="tekst">
+             <h3>Dane pracownika:</h3>
+                <?= "ID: ".$worker['id'] ?><br>
+                <?=        $worker['imie'] ?>
+                <?=        $worker['nazwisko'] ?>
+            </div>
+            <div class="tekst">
+            <h3>Dane czytelnika:</h3>
+                <?= "ID: ".$reader['id'] ?><br>
+                <?=        $reader['imie'] ?>
+                <?=        $reader['nazwisko'] ?><br>
+                <?= "Adres e-mail: ".$reader['adres_email'] ?><br>
+                <?= "Nr telefonu: ".$reader['numer_telefonu'] ?><br>
+            </div>
+            <div class="tekst">
+            <h3>Czas wypożyczenia :</h3>
+                <?= "Od: ".$rent['Data_wypozyczenia'] ?><br>
+                <?= "Do: ".$do ?><br>
+            </div>
+
+            <form action="wypozyczono.php" method="POST" enctype="multipart/form-data"> 
+                <input type="hidden" name="IdPracownika" id="IdPracownika" value= "<?=$worker['id'] ?>">
+                <input type="hidden" name="IdCzytelnika" id="IdCzytelnika" value= "<?= $reader['id'] ?> ">
+                <input type="hidden" name="IdKsiazki" id="IdKsiazki"       value= "<?= $book['id'] ?> ">
+                <input type="hidden" name="Data_wypozyczenia" id="Data_wypozyczenia" value= "<?= $rent['Data_wypozyczenia'] ?> ">
+                <input type="hidden" name="Czas" id="Czas" value= "<?= $rent['Czas'] ?> ">
+
+                <div class="buttons">
+                    <input type="submit" name="update" class="btnbook" value="POTWIERDZ "> <br>
+                        
+                </div>
+            
+            </form>  
+        
+    
                             
     </div>   
     

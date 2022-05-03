@@ -11,6 +11,19 @@ if (!$id) {
     exit();                                         // If no valid id
 }
 
+$sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika, wypozyczenia.IdKsiazki,wypozyczenia.Data_wypozyczenia,wypozyczenia.Czas,
+    ksiazki.id,ksiazki.tytul,ksiazki.autor,ksiazki.dostepnosc,ksiazki.okladka,ksiazki.gatunek
+    FROM wypozyczenia
+    join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+    where IdCzytelnika=:id;";
+
+
+
+  
+
+$wypozyczenie = pdo($pdo, $sql, [$id])->fetchAll();
+
+
 $sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
     FROM czytelnik
     where id=:id;";
@@ -45,6 +58,10 @@ if (!$czytelnik) {
             <?= $czytelnik['nazwisko']?> 
             <?= $czytelnik['numer_telefonu']?>
             <?= $czytelnik['adres_email']?>
+            <?php foreach($wypozyczenie as $pojedynczo) { ?> 
+                <?= $pojedynczo['id'] ?> <br>
+
+            <?php } ?>
 
                      
                             

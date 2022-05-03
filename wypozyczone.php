@@ -103,7 +103,7 @@ if ($count > $show) {                                     // If matches is more 
     <div class="btnwypo"><a href="ksiazki.php" class="btnwypozycz">DOSTĘPNE KSIĄŻKI</a></div>
     <div class="ksiazkiszukaj">
         <div class="szukaj">
-            <form action="czytelnicy.php" method="get" class="form-search">
+            <form action="wypozyczone.php" method="get" class="form-search">
                     <label for="search"><span> </span></label>
                     <input type="text" name="term" id="search" placeholder="Wyszukaj tutaj:"  />
                     <input type="submit" value="Szukaj" class="btnksiazka" />
@@ -112,7 +112,7 @@ if ($count > $show) {                                     // If matches is more 
         </div>
     </div>
     <div class="buttony">
-            <a href="dodajczytelnika.php" class="btnwypozycz">DODAJ CZYTELNIKA</a> <br><br>
+            <a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄZKĘ</a> <br><br>
     </div> 
     
         
@@ -131,7 +131,7 @@ if ($count > $show) {                                     // If matches is more 
                     <?= "Liczba stron: ".$pojedynczo['liczba_stron'] ?><br>
                 </div>
                 <div class="buttons">
-                        <a href="wypozyczksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">WYPOZYCZ</a> <br>
+                        <a href="oddajksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">ODDAJ</a> <br>
                         <a href="edytujksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">EDYTUJ</a> <br>
                         <a href="usunksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">USUŃ</a> <br>
                       
