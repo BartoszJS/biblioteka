@@ -4,7 +4,7 @@ include 'src/database-connection.php';
 include 'src/validate.php';
 
 $term  = filter_input(INPUT_GET, 'term');                 // Get search term
-$show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 8; // Limit
+$show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 10; // Limit
 $from  = filter_input(INPUT_GET, 'from', FILTER_VALIDATE_INT) ?? 0; // Offset
 $count = 0;
 $ksiazki=[];
@@ -20,7 +20,7 @@ if(!$term){
 
         $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
         FROM ksiazki  
-        where dostepnosc=1
+        where dostepnosc=0
         order by id desc
         limit :show
         OFFSET :from;";
@@ -47,7 +47,7 @@ if($term){
     or id like :term2
     or autor like :term3
     or gatunek like :term4
-    and dostepnosc=1;";
+    and dostepnosc=0;";
 
 
     $count = 0;
@@ -99,11 +99,11 @@ if ($count > $show) {                                     // If matches is more 
 
 
 <div class="ksiazki">
-    <div class="h1"><h1>Dostępne książki:</h1></div>
-    <div class="btnwypo"><a href="wypozyczone.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
+    <div class="h1"><h1>Wypożyczone książki:</h1></div>
+    <div class="btnwypo"><a href="ksiazki.php" class="btnwypozycz">DOSTĘPNE KSIĄŻKI</a></div>
     <div class="ksiazkiszukaj">
         <div class="szukaj">
-            <form action="ksiazki.php" method="get" class="form-search">
+            <form action="czytelnicy.php" method="get" class="form-search">
                     <label for="search"><span> </span></label>
                     <input type="text" name="term" id="search" placeholder="Wyszukaj tutaj:"  />
                     <input type="submit" value="Szukaj" class="btnksiazka" />
@@ -112,7 +112,7 @@ if ($count > $show) {                                     // If matches is more 
         </div>
     </div>
     <div class="buttony">
-            <a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄŻKĘ</a> <br><br>
+            <a href="dodajczytelnika.php" class="btnwypozycz">DODAJ CZYTELNIKA</a> <br><br>
     </div> 
     
         
@@ -125,7 +125,6 @@ if ($count > $show) {                                     // If matches is more 
                     <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
                 </div> 
                 <div class="tekst">
-                    <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                     <?= "Autor: ". $pojedynczo['autor'] ?><br>
                     <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
@@ -143,23 +142,6 @@ if ($count > $show) {                                     // If matches is more 
     <?php }?>
     
 </div>
-
-<div class="clear"></div>
-
-<?php  if ($count > $show) { ?>
-    <nav class="pagination" role="navigation" aria-label="Pagination Navigation">
-      <ul>
-      <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
-        <li>
-          <a href="?term=<?= $term ?>&show=<?= $show ?>&from=<?= (($i - 1) * $show) ?>"
-            class="btnpage <?= ($i == $current_page) ? 'active" aria-current="true' : '' ?>">
-            <?= $i ?>
-          </a>
-        </li>
-      <?php } ?>
-      </ul>
-    </nav>
-    <?php } ?>
 
 
       

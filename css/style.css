@@ -12,11 +12,12 @@
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     /* background-color: #674400; */
+ 
    
  
  }
  body{
-    background-color: rgb(255, 246, 230);
+  background-color:  rgb(255, 238, 206);
  }
 
  :root{
@@ -581,17 +582,24 @@ color: black;
    width: 80%;
    margin-left: auto;
    margin-right: auto;
-   border: 1px solid black;
+  
 }
+
+
 
 .ksiazki .ramka{
    width: 50%;
    margin-left: auto;
    margin-right: auto;
-   border: 1px solid black;
    height: 400px;
    float: left;
+   border-bottom: 1px solid black;
+   box-shadow: var(--box-shadow);
+   padding: 5px;
 }
+
+
+
 
 .ksiazki .column{
    height: 400px;
@@ -624,41 +632,59 @@ height: 210px;
    padding-right: 3%;
    
 }
-.ksiazki .buttony{
-   float: right;
- border: 1px solid green;
-   
-}
-.ksiazki .pasek{
-   float: left;
-   padding-bottom: 30px;
-}
+
 
 
 .ksiazki .ksiazkiszukaj{
-   border-top: 1px solid black;
-   padding-bottom: 50px;
+  
    clear: both;
+   border-bottom: 1px solid black;
+   box-shadow: var(--box-shadow);
 }
-.ksiazki h1{
+
+.ksiazki .buttony{
+ padding: 20px;
+ border-bottom: 1px solid black;
+ box-shadow: var(--box-shadow);
+ 
+   
+}
+
+.ksiazki .h1{
    padding-left: 30px;
    padding-bottom: 40px;
    float: left;
+   
+}
+.ksiazki .btnwypo{
+   padding-right: 40px;
+   float: right;
 }
 
 .ksiazki .form-search input[type=text] {
    font-size: 18px;
-   line-height: 1.6;
+   line-height: 1.95;
    vertical-align: middle;
    border-right: none;
    color: wheat;
    border-radius: 4px 0 0 4px;
-   width: 30%;
+   width: 40%;
    background-color: #452e00;
    padding: 5px;
    padding-left: 20px;
    box-shadow: var(--box-shadow);
    float: left;
+}
+
+.ksiazki .szukaj{
+   padding: 30px;
+  float: left;
+  width: 70%;
+}
+
+.ksiazki .buttony{
+   padding: 30px;
+   padding-right: 40px;
 }
 
 
@@ -676,10 +702,74 @@ height: 210px;
    text-align: center;
    border-radius: 5px 5px 5px 5px;
    font-weight: 400;
-   width: 150px;
+   width:150px;
    background: linear-gradient(217deg,#6b5000,#462e00);
 
+}
+.btnwypozycz{
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width: 300px;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+   float: right;
 }
 
 
  /* ksiazki koniec */
+
+ /* pagination */
+ 
+ nav.pagination {
+
+   text-align: center;
+}
+
+.pagination ul {
+   display: inline-block;
+   list-style-type: none;
+   margin: 0 0 2em 0;
+   padding: 0;
+}
+
+.pagination ul li {
+   display: inline-block;
+}
+
+.pagination a.active {
+   color: #ffffff;
+   border: 1px solid #000000;
+   background-color: #8d5b00;
+   padding: .1rem .5rem;
+}
+
+.btnpage,
+.btnpage-search {
+   color: #fff;
+   background: #533600;
+   display: inline-block;
+   width: min-content;
+   white-space: nowrap;
+   border: 1px solid transparent;
+   border-radius: 5px;
+   padding: .1rem .5rem;
+   line-height: 1.7;
+   vertical-align: middle;
+   text-transform: uppercase;
+
+}
+.clear{
+   padding: 40px;
+   clear: both;
+}
+
+ /* pagination koniec */
