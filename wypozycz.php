@@ -56,6 +56,8 @@ if (!$ksiazka) {
                 <?= "ID: ".$_SESSION['id'] ?><br>
                 <?= $_SESSION['imie'] ?>
                 <?= $_SESSION['nazwisko'] ?>
+
+                
                
             </div>
         <form action="potwierdzwypozyczenie.php" method="POST" enctype="multipart/form-data"> 
