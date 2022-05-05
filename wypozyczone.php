@@ -44,8 +44,11 @@ if($term){
     $sql="SELECT COUNT(id) 
     from ksiazki
     where tytul like :term1
+    and dostepnosc=0
     or id like :term2
+    and dostepnosc=0
     or autor like :term3
+    and dostepnosc=0
     or gatunek like :term4
     and dostepnosc=0;";
 
@@ -61,10 +64,13 @@ if($term){
         $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
         FROM ksiazki  
             where tytul like :term1
+            and dostepnosc=0
             or id like :term2
+            and dostepnosc=0
             or autor like :term3
+            and dostepnosc=0
             or gatunek like :term4
-            and dostepnosc=1
+            and dostepnosc=0
             order by id desc
             limit :show
             OFFSET :from;";

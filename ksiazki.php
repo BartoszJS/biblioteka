@@ -1,7 +1,10 @@
-<?php                      
+<?php                  
+declare(strict_types = 1);     
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
 include 'src/validate.php';
+
+
 
 $term  = filter_input(INPUT_GET, 'term');                 // Get search term
 $show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 8; // Limit
@@ -15,60 +18,17 @@ if(!$term){
     $sqlicz="SELECT COUNT(id) from ksiazki where dostepnosc=1;";
     $count = pdo($pdo, $sqlicz)->fetchColumn();
     if($count>0){
-        $arguments['show'] = $show;                     
-        $arguments['from'] = $from;
-
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-        where dostepnosc=1
-        order by id desc
-        limit :show
-        OFFSET :from;";
-        $ksiazki = pdo($pdo,$sql, $arguments)->fetchAll();
+        
+        $ksiazki = $cms->getKsiazka()->getDostepne($show,$from);  
     }
 }
 
 
-
-
-
-
 if($term){
-    
-    $arguments['term1'] ='%'.$term.'%'; 
-    $arguments['term2'] ='%'.$term.'%';            // three times as placeholders
-    $arguments['term3'] ='%'.$term.'%';
-    $arguments['term4'] ='%'.$term.'%';
 
-
-    $sql="SELECT COUNT(id) 
-    from ksiazki
-    where tytul like :term1
-    or id like :term2
-    or autor like :term3
-    or gatunek like :term4
-    and dostepnosc=1;";
-
-
-    $count = 0;
-    $count = pdo($pdo, $sql, $arguments)->fetchColumn();
-
+    $count = $cms->getKsiazka()->policzTerm($term);  
     if ($count > 0) {  
-        $arguments['show'] = $show;                       // Add to array for pagination
-        $arguments['from'] = $from; 
-        
-
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-            where tytul like :term1
-            or id like :term2
-            or autor like :term3
-            or gatunek like :term4
-            and dostepnosc=1
-            order by id desc
-            limit :show
-            OFFSET :from;";
-        $ksiazki = pdo($pdo,$sql,$arguments)->fetchAll();
+        $ksiazki = $cms->getKsiazka()->getDostepneTerm($show,$from,$term);  
     }
 }
 
@@ -167,3 +127,4 @@ if ($count > $show) {                                     // If matches is more 
 <?php include 'includes/footer.php'; ?>
 </body>
 </html>
+

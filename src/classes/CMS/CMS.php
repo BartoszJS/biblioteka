@@ -54,4 +54,16 @@ class CMS
         }
         return $this->token;                             // Return Token object
     }
+
+    
+    public function getKsiazka()
+    {
+      //  if ($this->ksiazka === null) {                     // If $ksiazka property null
+            $this->ksiazka = new Ksiazka($this->db);         // Create Token object
+       // }
+        return $this->ksiazka;                             // Return Token object
+    }
+
+
+  
 }

@@ -57,7 +57,7 @@ $ksiazka = pdo($pdo,$sql)->fetchAll();
     </div>
     <div class="ramka2">
       
-        <h1>najnowssze</h1>
+        <h1>Tu beda przedawnione ksiazki</h1>
         
     </div>
 </div>
