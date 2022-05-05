@@ -12,7 +12,7 @@ $ksiazki=[];
 
 if(!$term){
     $count = 0;
-    $sqlicz="SELECT COUNT(id) from ksiazki ;";
+    $sqlicz="SELECT COUNT(id) from ksiazki where dostepnosc=1;";
     $count = pdo($pdo, $sqlicz)->fetchColumn();
     if($count>0){
         $arguments['show'] = $show;                     
@@ -125,6 +125,7 @@ if ($count > $show) {                                     // If matches is more 
                     <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
                 </div> 
                 <div class="tekst">
+                    
                     <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                     <?= "Autor: ". $pojedynczo['autor'] ?><br>

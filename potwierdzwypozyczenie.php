@@ -63,7 +63,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img class="image-resize" src="uploads/<?= html_escape($book['okladka'] ?? 'blank.png') ?>">
             </div>
             <div class="tekst">
-                <h2>Potwierdzenie wypożyczenia:</h2><br>
+                <h2>Podsumowanie wypożyczenia:</h2><br>
                 <h3>Książka:</h3>
                 <?= "ID: ".$book['id']?> <br>
                 <?= "Tytuł: ".$book['tytul']?><br>

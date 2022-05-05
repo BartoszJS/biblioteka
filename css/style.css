@@ -870,11 +870,11 @@ height: 210px;
 
 
 .wypozycz .okladka{
-   height: 500px;
+   height: 580px;
    width: 40%;
    float: left;
    padding-left: 13%;
-   padding-top: 20px;
+   padding-top: 80px;
 }
 
 .wypozycz .okladka .image-resize {
@@ -889,17 +889,23 @@ height: 210px;
 }
 
 .wypozycz .tekst{
+   width: 60%;
    padding-top: 10px;
-   padding-left: 42%;
    padding-bottom: 10px;
    border-bottom: 1px solid black;
    box-shadow: var(--box-shadow);
    font-size: 22px;
+   float: right;
+   padding-left: 3%;
 }
 .wypozycz .buttons{
+
    padding-bottom: 10px;
    padding-right: 200px;
-   float: right;
+   text-align: center;
+   margin-left: 40%;
+   margin-right: 60%;
+   clear: both;
 }
 
 .wypozycz .buttons .btnbook{

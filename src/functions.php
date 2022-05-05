@@ -33,6 +33,18 @@ function is_admin($role)
 }
 
 
+function getRentDate(int $IdKsiazki){
+    $sql="SELECT Data_wypozyczenia
+        FROM wypozyczenia
+        where IdKsiazki=:IdKsiazki
+        order by id desc;";
+
+
+
+    return $this->db->runSQL($sql)->fetchColumn();;
+}
+
+
 
 
 function redirect(string $location, array $parameters = [], $response_code = 302)
