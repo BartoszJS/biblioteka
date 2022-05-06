@@ -1,11 +1,12 @@
 <?php
             
-            include 'src/bootstrap.php';    
-            include 'src/database-connection.php'; 
-            include 'src/validate.php';
+include 'src/bootstrap.php';    
+include 'src/database-connection.php'; 
+
+is_admin($session->role); 
             
 
-            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 
                 $rent['IdPracownika']=$_POST['IdPracownika'];
@@ -35,7 +36,7 @@
                   }catch(PDOException $e){
                     throw $e;
                   }
-                }
+}
 
 
 

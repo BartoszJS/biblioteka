@@ -1,7 +1,8 @@
 <?php
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
-include 'src/validate.php';
+
+is_admin($session->role); 
 
 $upload_path = dirname(__FILE__).DIRECTORY_SEPARATOR. 'uploads'.DIRECTORY_SEPARATOR;
 

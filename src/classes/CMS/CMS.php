@@ -9,27 +9,14 @@ class CMS
     protected $member    = null;                         // Stores reference to Member object
     protected $session   = null;                         // Stores reference to Session object
     protected $token     = null;                         // Stores reference to Token object
+    protected $ksiazka     = null;                         // Stores reference to Token object
 
     public function __construct($dsn, $username, $password)
     {
         $this->db = new Database($dsn, $username, $password); // Create Database object
     }
 
-    public function getArticle()
-    {
-        if ($this->article === null) {                   // If $article property null
-            $this->article = new Article($this->db);     // Create Article object
-        }
-        return $this->article;                           // Return Article object
-    }
-
-    public function getCategory()
-    {
-        if ($this->category === null) {                  // If $category property null
-            $this->category = new Category($this->db);   // Create Category object
-        }
-        return $this->category;                          // Return Category object
-    }
+   
 
     public function getMember()
     {
@@ -47,20 +34,12 @@ class CMS
         return $this->session;                           // Return Session object
     }
 
-    public function getToken()
-    {
-        if ($this->token === null) {                     // If $token property null
-            $this->token = new Token($this->db);         // Create Token object
-        }
-        return $this->token;                             // Return Token object
-    }
-
     
     public function getKsiazka()
     {
-      //  if ($this->ksiazka === null) {                     // If $ksiazka property null
+        if ($this->ksiazka === null) {                     // If $ksiazka property null
             $this->ksiazka = new Ksiazka($this->db);         // Create Token object
-       // }
+        }
         return $this->ksiazka;                             // Return Token object
     }
 

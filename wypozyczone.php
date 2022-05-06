@@ -1,7 +1,8 @@
 <?php                      
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
-include 'src/validate.php';
+
+is_admin($session->role); 
 
 $term  = filter_input(INPUT_GET, 'term');                 // Get search term
 $show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 10; // Limit

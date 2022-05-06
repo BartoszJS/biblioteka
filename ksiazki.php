@@ -2,7 +2,6 @@
 declare(strict_types = 1);     
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
-include 'src/validate.php';
 
 
 
@@ -18,7 +17,6 @@ if(!$term){
     $sqlicz="SELECT COUNT(id) from ksiazki where dostepnosc=1;";
     $count = pdo($pdo, $sqlicz)->fetchColumn();
     if($count>0){
-        
         $ksiazki = $cms->getKsiazka()->getDostepne($show,$from);  
     }
 }

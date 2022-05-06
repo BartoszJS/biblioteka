@@ -2,7 +2,8 @@
                          // Import Validate class
 include 'src/bootstrap.php';    
 include 'src/database-connection.php'; 
-include 'src/validate.php';
+
+is_admin($session->role); 
 
 $errors['login']    ='';
 $errors['haslo']    ='';
