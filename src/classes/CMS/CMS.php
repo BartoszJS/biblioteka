@@ -1,15 +1,15 @@
 <?php
-namespace PhpBook\CMS;                                   // Namespace declaration
+namespace PhpBook\CMS;                                  
 
 class CMS
 {
-    protected $db        = null;                         // Stores reference to Database object
-    protected $article   = null;                         // Stores reference to Article object
-    protected $category  = null;                         // Stores reference to Category object
-    protected $member    = null;                         // Stores reference to Member object
-    protected $session   = null;                         // Stores reference to Session object
-    protected $token     = null;                         // Stores reference to Token object
-    protected $ksiazka     = null;                         // Stores reference to Token object
+    protected $db        = null;                                        
+    protected $member    = null;                        
+    protected $session   = null;                              
+    protected $ksiazka     = null;                         
+    protected $czytelnik     = null;                        
+    protected $wypozyczenie     = null;                       
+    protected $pracownik     = null;                    
 
     public function __construct($dsn, $username, $password)
     {
@@ -41,6 +41,27 @@ class CMS
             $this->ksiazka = new Ksiazka($this->db);         // Create Token object
         }
         return $this->ksiazka;                             // Return Token object
+    }
+    public function getCzytelnik()
+    {
+        if ($this->czytelnik === null) {                     // If $czytelnik property null
+            $this->czytelnik = new Czytelnik($this->db);         // Create Token object
+        }
+        return $this->czytelnik;                             // Return Token object
+    }
+    public function getWypozyczenie()
+    {
+        if ($this->wypozyczenie === null) {                     // If $wypozyczenie property null
+            $this->wypozyczenie = new Wypozyczenie($this->db);         // Create Token object
+        }
+        return $this->wypozyczenie;                             // Return Token object
+    }
+    public function getPracownik()
+    {
+        if ($this->pracownik === null) {                     // If $pracownik property null
+            $this->pracownik = new Pracownik($this->db);         // Create Token object
+        }
+        return $this->pracownik;                             // Return Token object
     }
 
 

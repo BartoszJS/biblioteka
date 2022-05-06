@@ -14,8 +14,7 @@ $ksiazki=[];
 
 if(!$term){
     $count = 0;
-    $sqlicz="SELECT COUNT(id) from ksiazki where dostepnosc=1;";
-    $count = pdo($pdo, $sqlicz)->fetchColumn();
+    $count = $cms->getKsiazka()->liczDostepne();  
     if($count>0){
         $ksiazki = $cms->getKsiazka()->getDostepne($show,$from);  
     }

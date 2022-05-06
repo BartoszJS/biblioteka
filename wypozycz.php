@@ -14,11 +14,7 @@ if (!$id) {
     exit();                                          // If no valid id
 }
 
-$sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-    FROM ksiazki
-    where id=:id;";
-
-$ksiazka = pdo($pdo, $sql, [$id])->fetch();    // Get article data
+$ksiazka =  $cms->getKsiazka()->getKsiazka($id);     
 if (!$ksiazka) {   
     header("Location: nieznaleziono.php");  
     exit();                                 // Page not found

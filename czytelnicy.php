@@ -5,7 +5,7 @@ include 'src/database-connection.php';
 is_admin($session->role); 
 
 $term  = filter_input(INPUT_GET, 'term');                 // Get search term
-$show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 10; // Limit
+$show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 8; // Limit
 $from  = filter_input(INPUT_GET, 'from', FILTER_VALIDATE_INT) ?? 0; // Offset
 $count = 0;
 $czytelnicy=[];
@@ -13,58 +13,21 @@ $czytelnicy=[];
 
 if(!$term){
     $count = 0;
-    $sqlicz="SELECT COUNT(id) from czytelnik ;";
-    $count = pdo($pdo, $sqlicz)->fetchColumn();
+    $count = $cms->getCzytelnik()->liczCzytelnikow();  
     if($count>0){
-        $arguments['show'] = $show;                     
-        $arguments['from'] = $from;
-
-        $sql="SELECT ID,imie,nazwisko,numer_telefonu,adres_email
-        FROM czytelnik  
-        order by id desc
-        limit :show
-        OFFSET :from;";
-        $czytelnicy = pdo($pdo,$sql, $arguments)->fetchAll();
+        $czytelnicy =$cms->getCzytelnik()->getCzytelnikow($show,$from);  
     }
+
 }
 
-
-
-
-
-
 if($term){
-    
-    $arguments['term1'] ='%'.$term.'%'; 
-    $arguments['term2'] ='%'.$term.'%';            // three times as placeholders
-    $arguments['term3'] ='%'.$term.'%';
 
-
-    $sql="SELECT COUNT(id) 
-    from czytelnik
-    where imie like :term1
-    or id like :term2
-    or nazwisko like :term3;";
-
-
-    $count = 0;
-    $count = pdo($pdo, $sql, $arguments)->fetchColumn();
-
+    $count = $cms->getCzytelnik()->policzTerm($term);  
     if ($count > 0) {  
-        $arguments['show'] = $show;                       // Add to array for pagination
-        $arguments['from'] = $from; 
-        
-
-        $sql="SELECT ID,imie,nazwisko,numer_telefonu,adres_email
-            FROM czytelnik
-            where imie like :term1
-            or id like :term2
-             or nazwisko like :term3
-            order by id desc
-            limit :show
-            OFFSET :from;";
-        $czytelnicy = pdo($pdo,$sql,$arguments)->fetchAll();
+        $czytelnicy = $cms->getCzytelnik()->getCzytelnikowTerm($show,$from,$term);  
     }
+    
+    
 }
 
 
@@ -133,6 +96,24 @@ if ($count > $show) {                                     // If matches is more 
     </div>
  
 </div>
+
+
+<?php  if ($count > $show) { ?>
+    <nav class="pagination" role="navigation" aria-label="Pagination Navigation">
+      <ul>
+      <?php for ($i = 1; $i <= $total_pages; $i++) { ?>
+        <li>
+          <a href="?term=<?= $term ?>&show=<?= $show ?>&from=<?= (($i - 1) * $show) ?>"
+            class="btnpage <?= ($i == $current_page) ? 'active" aria-current="true' : '' ?>">
+            <?= $i ?>
+          </a>
+        </li>
+      <?php } ?>
+      </ul>
+    </nav>
+    <?php } ?>
+
+
       
 <?php include 'includes/footer.php'; ?>
 </body>

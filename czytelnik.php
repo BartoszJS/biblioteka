@@ -12,24 +12,9 @@ if (!$id) {
     exit();                                         // If no valid id
 }
 
-$sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika, wypozyczenia.IdKsiazki,wypozyczenia.Data_wypozyczenia,wypozyczenia.Czas,
-    ksiazki.id,ksiazki.tytul,ksiazki.autor,ksiazki.dostepnosc,ksiazki.okladka,ksiazki.gatunek
-    FROM wypozyczenia
-    join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
-    where IdCzytelnika=:id;";
+$wypozyczenie = $cms->getWypozyczenie()->getWypozyczeniaCzytelnika($id);
 
-
-
-  
-
-$wypozyczenie = pdo($pdo, $sql, [$id])->fetchAll();
-
-
-$sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
-    FROM czytelnik
-    where id=:id;";
-
-$czytelnik = pdo($pdo, $sql, [$id])->fetch();    // Get article data
+$czytelnik =$cms->getCzytelnik()->getCzytelnik($id);
 if (!$czytelnik) {   
     header("Location: nieznaleziono.php");  
     exit();                              // Page not found

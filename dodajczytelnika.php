@@ -10,20 +10,14 @@ $errors['nazwisko']='';
 $errors['numer_telefonu']='';
 $errors['adres_email']='';
 
-
-
 $czytelnik['imie']='';
 $czytelnik['nazwisko']='';
 $czytelnik['numer_telefonu']='';
 $czytelnik['adres_email']='';
 
-$id=[];
 
-$sql="SELECT ID
-        FROM czytelnik
-        order by id desc
-        limit 1;";
-$last = pdo($pdo,$sql)->fetchAll();
+$last = $cms->getCzytelnik()->getLastId();
+$last=$last+1;
 
 
 
@@ -35,23 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $czytelnik['numer_telefonu']=$_POST['numer_telefonu'];
     $czytelnik['adres_email']=$_POST['adres_email'];
    
+    $arguments=$czytelnik;   
 
-  
-  
-    $sql="INSERT INTO czytelnik(imie,nazwisko,numer_telefonu,adres_email)
-    values            (:imie,:nazwisko,:numer_telefonu,:adres_email);";
-  
-    $arguments=$czytelnik;
-
-    try{
-      pdo($pdo,$sql,$arguments)  ;  
-      $lastczytelnik=$pdo->lastInsertId();
-      header("Location: czytelnik.php?id=".$lastczytelnik); 
-      exit();
-    }catch(PDOException $e){
-      throw $e;
-    }
-
+    $cms->getCzytelnik()->dodajCzytelnika($arguments,$last); 
   }
 
 ?>
@@ -75,10 +55,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <section class="formularz">
       <div class="ramka">
         <br><br>
-        <h1>Dodawanie czytelnika</h1> <br>
-        <?php foreach($last as $id) { ?> 
-        <p>Automatycznie przypisane id: <?=$id['ID']+1?></p> <br>
-        <?php } ?> 
+        <h1>Dodawanie czytelnika</h1> <br> 
+        <p>Automatycznie przypisane id: <?=$last?></p> <br>
 
 
           <div class="form-group">

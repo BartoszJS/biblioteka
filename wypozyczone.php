@@ -13,73 +13,24 @@ $ksiazki=[];
 
 if(!$term){
     $count = 0;
-    $sqlicz="SELECT COUNT(id) from ksiazki where dostepnosc=1;";
-    $count = pdo($pdo, $sqlicz)->fetchColumn();
+    $count = $cms->getKsiazka()->liczNiedostepne();  
     if($count>0){
-        $arguments['show'] = $show;                     
-        $arguments['from'] = $from;
-
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-        where dostepnosc=0
-        order by id desc
-        limit :show
-        OFFSET :from;";
-        $ksiazki = pdo($pdo,$sql, $arguments)->fetchAll();
+        $ksiazki = $cms->getKsiazka()->getNiedostepne($show,$from); 
     }
 }
-
-
-
 
 
 
 if($term){
     
-    $arguments['term1'] ='%'.$term.'%'; 
-    $arguments['term2'] ='%'.$term.'%';            // three times as placeholders
-    $arguments['term3'] ='%'.$term.'%';
-    $arguments['term4'] ='%'.$term.'%';
-
-
-    $sql="SELECT COUNT(id) 
-    from ksiazki
-    where tytul like :term1
-    and dostepnosc=0
-    or id like :term2
-    and dostepnosc=0
-    or autor like :term3
-    and dostepnosc=0
-    or gatunek like :term4
-    and dostepnosc=0;";
-
-
-    $count = 0;
-    $count = pdo($pdo, $sql, $arguments)->fetchColumn();
-
+    $count = $cms->getKsiazka()->policzNieTerm($term);  
     if ($count > 0) {  
-        $arguments['show'] = $show;                       // Add to array for pagination
-        $arguments['from'] = $from; 
-        
-
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-            where tytul like :term1
-            and dostepnosc=0
-            or id like :term2
-            and dostepnosc=0
-            or autor like :term3
-            and dostepnosc=0
-            or gatunek like :term4
-            and dostepnosc=0
-            order by id desc
-            limit :show
-            OFFSET :from;";
-        $ksiazki = pdo($pdo,$sql,$arguments)->fetchAll();
+        $ksiazki = $cms->getKsiazka()->getNiedostepneTerm($show,$from,$term);  
+    }
 
         
     }
-}
+
 
 
 if ($count > $show) {                                     // If matches is more than show

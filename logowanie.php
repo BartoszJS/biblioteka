@@ -30,25 +30,25 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     // $errors['login']  = is_text($member['login'], 1, 40)
     //       ? '' : 'Email musi miec od 1-40 znaków';
 
-          $invalid = implode($errors);
+    $invalid = implode($errors);
           
 
     if($invalid){
       $errors['warning']='Sprobuj ponownie';
     }else{
-      $member = $cms->getMember()->login($login, $haslo); // Get member details
-      if ($member) {                                   // Otherwise for members
-          $cms->getSession()->create($member);               // Create session
+      $member = $cms->getMember()->login($login, $haslo);
+      if ($member) {                                  
+          $cms->getSession()->create($member);               
           //redirect('member.php', ['id' => $member['id'],]);
-          redirect('../index.php');  // Redirect to their page
-      } else {                                               // Otherwise
-          $errors['warning'] = 'Nieprawidłowe dane';      // Store error message
+          redirect('../index.php');  
+      } else {                                             
+          $errors['warning'] = 'Nieprawidłowe dane';      
       }
     }
 }
 
-$data['success']    = $success;                              // Success message
-$data['login']      = $login;                                // Email address if login failed
+$data['success']    = $success;                             
+$data['login']      = $login;                               
 $data['errors']     = $errors;  
 
 ?>

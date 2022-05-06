@@ -14,28 +14,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rent['IdKsiazki']=$_POST['IdKsiazki'];
                 $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
                 $rent['Czas']=$_POST['Czas'];
-
-                
-                $sql="UPDATE ksiazki
-                SET dostepnosc = 0
-                where id=:id;";
-
-                $ksiazka['id']=$_POST['IdKsiazki'];
-
-                pdo($pdo, $sql, $ksiazka);
-                
-                $sqlrent="INSERT INTO wypozyczenia(IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas)
-                values(:IdPracownika,:IdCzytelnika,:IdKsiazki,:Data_wypozyczenia,:Czas);";
-                
+                $id=$_POST['IdKsiazki'];
                 $arguments=$rent;
+
+                $cms->getKsiazka()->updateDostepnosc($id);
+                $ksiazki = $cms->getWypozyczenie()->insertWypozyczenie($arguments);  
                 
-                try{
-                    pdo($pdo,$sqlrent,$arguments)  ;  
-                    header("Location: wypozyczono.php"); 
-                    exit();
-                  }catch(PDOException $e){
-                    throw $e;
-                  }
+                
 }
 
 

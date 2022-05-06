@@ -22,11 +22,10 @@ $ksiazka['gatunek']='';
 $ksiazka['liczba_stron']='';
 
 
-$sql=   "SELECT ID
-        FROM ksiazki  
-        order by id desc
-        limit 1;";
-$last = pdo($pdo,$sql)->fetchAll();
+
+$last = $cms->getKsiazka()->getLastId();
+$last=$last+1;
+
 
 
 
@@ -38,31 +37,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ksiazka['gatunek']=$_POST['gatunek'];
     $ksiazka['liczba_stron']=$_POST['liczba_stron'];
 
-
-
-
-  
     $temp = $_FILES['okladka']['tmp_name'];
     $path = 'uploads/' . $_FILES['okladka']['name'];
     $moved = move_uploaded_file($temp, $path);
     $ksiazka['okladka']    =$_FILES['okladka']['name'];
   
-          
-  
-  
-    $sql="INSERT INTO ksiazki(tytul,autor,dostepnosc,okladka,gatunek,liczba_stron)
-    values            (:tytul,:autor,1,:okladka,:gatunek,:liczba_stron);";
-  
-    $arguments=$ksiazka;
+    $arguments=$ksiazka;   
 
-    try{
-      pdo($pdo,$sql,$arguments)  ;  
-      $lastksiazka=$pdo->lastInsertId();
-      header("Location: ksiazka.php?id=".$lastksiazka); 
-      exit();
-    }catch(PDOException $e){
-      throw $e;
-    }
+    $cms->getKsiazka()->dodajKsiazke($arguments,$last);  
+  
+    
 
   }
 
@@ -88,9 +72,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="ramka">
         <br>
         <h1>Dodawanie książki:</h1> <br>
-        <?php foreach($last as $id) { ?> 
-        <p>Automatycznie przypisane id: <?=$id['ID']+1?></p> <br>
-        <?php } ?> 
+        
+        <p>Automatycznie przypisane id: <?=$last?></p> <br>
+        
         <div class="form-group">
         <label for="okladka">Dodaj okładkę:</label>
             

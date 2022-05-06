@@ -13,12 +13,7 @@ if (!$id) {
 }
 
 
-is_admin($session->role);  
-$sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
-    FROM czytelnik
-    where id=:id;";
-
-$czytelnik = pdo($pdo, $sql, [$id])->fetch();    // Get article data
+$czytelnik =  $cms->getCzytelnik()->getCzytelnik($id);    // Get article data
 if (!$czytelnik) {   
     header("Location: nieznaleziono.php");  
     exit();                              // Page not found
@@ -27,12 +22,10 @@ if (!$czytelnik) {
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-$sqlre="DELETE FROM wypozyczenia where IdCzytelnika=:id;";
-$czytelnik = pdo($pdo, $sqlre, [$id])->fetch(); 
 
-$sql="DELETE FROM czytelnik where id=:id;";
+$cms->getWypozyczenie()->usunWypozyczeniaCzytelnika($id);
+$czytelnik =$cms->getCzytelnik()->usunCzytelnika($id);
 
-$czytelnik = pdo($pdo, $sql, [$id])->fetch();    // Get article data
 if (!$czytelnik) {   
     header("Location: index.php");  
     exit();                              // Page not found

@@ -16,20 +16,13 @@ $errors['nazwisko']='';
 $errors['numer_telefonu']='';
 $errors['adres_email']='';
 
-
-
 $czytelnik['imie']='';
 $czytelnik['nazwisko']='';
 $czytelnik['numer_telefonu']='';
 $czytelnik['adres_email']='';
 
 
-
-$sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
-    FROM czytelnik
-    where id=:id;";
-
-$czytelnik = pdo($pdo, $sql, [$id])->fetch();    // Get article data
+$czytelnik =  $cms->getCzytelnik()->getCzytelnik($id);   
 if (!$czytelnik) {   
     header("Location: nieznaleziono.php");  
     exit();                              // Page not found
@@ -43,26 +36,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $czytelnik['nazwisko']=$_POST['nazwisko'];
     $czytelnik['numer_telefonu']=$_POST['numer_telefonu'];
     $czytelnik['adres_email']=$_POST['adres_email'];
-   
 
-  
     $arguments=$czytelnik;    
-  
-  
-    $sql="UPDATE czytelnik 
-          set imie=:imie,nazwisko=:nazwisko,numer_telefonu=:numer_telefonu,adres_email=:adres_email
-          where id=:id;";
-   
 
-    try{       
-      pdo($pdo,$sql,$arguments);  
-      header("Location: czytelnik.php?id=".$id); 
-      exit();
-    }catch(PDOException $e){
-      $pdo->rollBack();   
-      throw $e;
-    }
-
+    $czytelnik =  $cms->getCzytelnik()->edytujCzytelnika($arguments,$id);
+  
   }
 
 ?>

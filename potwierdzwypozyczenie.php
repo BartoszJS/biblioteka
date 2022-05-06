@@ -19,22 +19,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
     $rent['Czas']=$_POST['Czas'];
 
-    $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-    FROM ksiazki
-    where id=:ksiazka;";
-    $book = pdo($pdo, $sql, [$ksiazka])->fetch();
-
-
-    $sql="SELECT id,imie,nazwisko,numer_telefonu,adres_email
-    FROM czytelnik
-    where id=:czytelnik;";
-    $reader = pdo($pdo, $sql, [$czytelnik])->fetch();
-
-
-    $sql="SELECT id,imie,nazwisko
-    FROM pracownik
-    where id=:pracownik;";
-    $worker = pdo($pdo, $sql, [$pracownik])->fetch();
+    
+    $book =    $cms->getKsiazka()->getKsiazka($ksiazka); 
+    $reader = $cms->getCzytelnik()->getCzytelnik($czytelnik);
+    $worker = $cms->getPracownik()->getPracownik($pracownik);
 
    
     $d=strtotime("+".$rent['Czas']." Days");
