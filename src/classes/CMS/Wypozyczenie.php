@@ -47,7 +47,30 @@ class Wypozyczenie
 
     }
 
+    public function getDataOddania($id){
 
+
+    $sql="SELECT ID,IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas
+      from wypozyczenia
+      where IdKsiazki=:id
+      order by ID desc
+      limit 1;";
+       return $this->db->runSql($sql,[$id])->fetch();  
+
+
+    }
+    public function getIdWypozyczenia($id){
+
+
+    $sql="SELECT IdCzytelnika
+      from wypozyczenia
+      where IdKsiazki=:id
+      order by ID desc
+      limit 1;";
+       return $this->db->runSql($sql,[$id])->fetchColumn();  
+
+
+    }
 
     
 }

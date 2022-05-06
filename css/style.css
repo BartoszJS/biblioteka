@@ -844,6 +844,56 @@ height: 210px;
    background: linear-gradient(217deg,#6b5000,#462e00);
 
 }
+.btnbook:hover{
+   cursor: pointer;
+  
+}
+.btnprzywroc{
+   display: block;
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width:150px;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+   float: left;
+
+}
+.btnprzywroc:hover{
+   cursor: pointer;
+  
+}
+.btnprzywroc2{
+   display: block;
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width:150px;
+   background: linear-gradient(217deg,#6b5000,#462e00);
+   float: left;
+
+}
+.btnprzywroc2:hover{
+   cursor: pointer;
+  
+}
 
 
 
@@ -902,6 +952,7 @@ height: 210px;
 
    padding-bottom: 10px;
    padding-right: 200px;
+   padding-left: 3%;
    text-align: center;
    margin-left: 40%;
    margin-right: 60%;

@@ -174,6 +174,15 @@ class Ksiazka
        return $this->db->runSql($sql,[$id])->fetch();     
     }
 
+    //potwierdzrent.php
+    public function updateNiedostepnosc($id)
+    { 
+        $sql="UPDATE ksiazki
+        SET dostepnosc = 1
+        where id=:id;";
+       return $this->db->runSql($sql,[$id])->fetch();     
+    }
+
     //dodajksiazke.php
     public function getLastId()
     { 

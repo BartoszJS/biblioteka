@@ -43,7 +43,7 @@ if (!$ksiazka) {
                 <img class="image-resize" src="uploads/<?= html_escape($ksiazka['okladka'] ?? 'blank.png') ?>">
             </div>
             <div class="tekst">
-            <h2>Formularz oddania książki:</h2><br>
+            <h2>Potwierdz oddanie książki:</h2><br>
                 <h3>Książka:</h3>
                 
                 <?= "ID: ".$ksiazka['id']?> <br>
@@ -71,14 +71,18 @@ if (!$ksiazka) {
                 <?= "E-mail: ".$czytelnik['adres_email'] ?><br>
                 <?= "Nr telefonu: ".$czytelnik['numer_telefonu'] ?><br>
             </div>
-            <form action="oddajpotwierdz.php?id=<?= $ksiazka['id'] ?>" method="POST" enctype="multipart/form-data"> 
+            <form action="potwierdzrent.php" method="POST" enctype="multipart/form-data"> 
             <div class="tekst">
-            
-                    <input type="submit" name="update" class="btnprzywroc2" value="PRZYWRÓĆ "> 
-                        
+                <h3>Czy na pewno chcesz przywrocić książkę?</h3>
+                <input type="hidden" name="IdKsiazki" id="IdKsiazki" value= "<?=$ksiazka['id'] ?>">
+
+
+                    <input type="submit" name="update" class="btnprzywroc" value="TAK "> 
+                    <a href="wypozyczone.php" class="btnprzywroc2">ANULUJ</a>   
+                
                 
             </div>
-           
+            
                 
             </form>
 

@@ -20,6 +20,8 @@ class Czytelnik
        return $this->db->runSql($sql,[$czytelnik])->fetch();     
     }
 
+    
+
     //czytelnicy.php
 
     public function liczCzytelnikow()

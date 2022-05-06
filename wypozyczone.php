@@ -9,6 +9,7 @@ $show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 10; // Limit
 $from  = filter_input(INPUT_GET, 'from', FILTER_VALIDATE_INT) ?? 0; // Offset
 $count = 0;
 $ksiazki=[];
+$data=[];
 
 
 if(!$term){
@@ -18,6 +19,8 @@ if(!$term){
         $ksiazki = $cms->getKsiazka()->getNiedostepne($show,$from); 
     }
 }
+
+// $data=$cms->getWypozyczenie()->getDataOddania($id);   
 
 
 
@@ -78,13 +81,14 @@ if ($count > $show) {                                     // If matches is more 
         
    
     <?php foreach($ksiazki as $pojedynczo) { ?> 
-    <a href="ksiazka.php?id=<?= $pojedynczo['ID'] ?>">
+    <a href="oddajksiazke.php?id=<?= $pojedynczo['ID'] ?>">
         <div class="ramka">
             <div class="rameczka">
                 <div class="column">
                     <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
                 </div> 
                 <div class="tekst">
+                    
                  <?php /* getRentDate($pojedynczo['ID']); */ ?>
                     <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
