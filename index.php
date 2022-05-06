@@ -4,7 +4,6 @@ include 'src/database-connection.php';
 
 is_admin($session->role); 
 
-is_admin($session->role); 
 
 $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
     FROM ksiazki
@@ -12,6 +11,30 @@ $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
     order by id desc
     limit 6;";
 $ksiazka = pdo($pdo,$sql)->fetchAll();
+
+$today=date("Y-m-d");
+
+
+
+$sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
+    wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
+    ksiazki.autor,ksiazki.okladka
+    FROM wypozyczenia
+    join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+    where wypozyczenia.Do<:today
+    and zakonczona=0
+    order by Do asc
+    limit 6;";
+
+
+
+$przedawnione = pdo($pdo,$sql,[$today])->fetchAll();
+
+
+
+
+
+
 
 
 ?>
@@ -58,7 +81,31 @@ $ksiazka = pdo($pdo,$sql)->fetchAll();
     </div>
     <div class="ramka2">
       
-        <h1>Tu beda przedawnione ksiazki</h1>
+    <h1>Przedawnione książki:</h1><br>
+        <?php foreach($przedawnione as $pojedynczo) { ?> 
+            <div class="ramka">
+            <div class="column">
+                    <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
+                </div> 
+                <?php /* $today=date("Y-m-d");
+                     $suma=$today-$pojedynczo['Do'];
+                     */
+                 ?>
+                <div class="tekst">
+                    <?= "Data oddania: ".$pojedynczo['Do'] ?><br>
+                    <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
+                    <?= "Data oddania: ".$pojedynczo['autor'] ?><br>
+                    
+                </div>
+                <div class="button1">
+                    <a href="oddajksiazke.php?id=<?= $pojedynczo['id'] ?>" class="btnzobacz" >ZGLOŚ</a><br> 
+                </div>
+                
+            </div>
+            <div class="przerwa">
+                    
+                </div>
+        <?php }?>
         
     </div>
 </div>

@@ -294,12 +294,14 @@ footer a{
    padding: 20px;
     width: 45%;
     float: left;
-    border: 2px solid #674400;
+    border: 1px solid black;
+    box-shadow: var(--box-shadow);
  }
  .glowna .ramka2{
    padding: 30px;
    width: 45%;
-   
+   border: 1px solid black;
+   box-shadow: var(--box-shadow);
    float:  right ;
   
  }
@@ -343,6 +345,76 @@ footer a{
    float: left;;
    font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+ .glowna .ramka2{
+   padding: 20px;
+   width: 45%;
+   float: right;
+   border: 1px solid black;
+   box-shadow: var(--box-shadow);
+  
+ }
+ .glowna .ramka2 .column .image-resize {
+   height: 123px;
+   width: 15%;
+   border-radius: 1%;
+   box-shadow: var(--box-shadow);
+   border-radius: 1%;
+   overflow: hidden;
+   object-position: center center;
+   object-fit: cover;
+   float: left;
+}
+.glowna .ramka2 .ramka{
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   box-shadow: var(--box-shadow);
+   padding-bottom: 40px;  
+}
+.glowna .ramka2 .przerwa{
+
+   padding: 20px;  
+   clear: both;
+  
+}
+
+.ramka2 .ramka:last-child{
+   border-bottom: 1px solid black; 
+   box-shadow: var(--box-shadow);
+}
+
+
+.ramka2 .ramka .tekst{
+   
+   padding-left:25px;
+   padding-top: 30px;
+
+
+   width: 60%;
+   float: left;;
+   font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
 .button1{
    
    padding-top: 45px;

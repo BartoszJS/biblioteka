@@ -7,14 +7,12 @@ is_admin($session->role);
             
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+               
+        $idKsiazki=$_POST['IdKsiazki'];
+        $id=$_POST['ID'];
+        $cms->getKsiazka()->updateNiedostepnosc($idKsiazki);    
+        $cms->getWypozyczenie()->updateZakonczona($id);    
 
-                
-                $id=$_POST['IdKsiazki'];
-                
-
-                $cms->getKsiazka()->updateNiedostepnosc($id);
-                
-                
                 
 }
 

@@ -9,13 +9,31 @@ class Wypozyczenie
     {
         $this->db = $db;                                 // Store ref to Database object
     }
+        
+    
+
+    public function getAll()
+    { 
+
+
+      $sql="SELECT ID,IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas
+      from wypozyczenia
+      order by ID desc;";
+                
+                
+              
+        return $this->db->runSql($sql)->fetchAll();   
+                 
+    }
+
+
 
     
     //potwwypo.php
     public function insertWypozyczenie($arguments)
     { 
-        $sql="INSERT INTO wypozyczenia(IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas)
-                values(:IdPracownika,:IdCzytelnika,:IdKsiazki,:Data_wypozyczenia,:Czas);";
+        $sql="INSERT INTO wypozyczenia(IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas,Do,zakonczona)
+                values(:IdPracownika,:IdCzytelnika,:IdKsiazki,:Data_wypozyczenia,:Czas,:Do,:zakonczona);";
                 
                 
                 try{
@@ -59,6 +77,8 @@ class Wypozyczenie
 
 
     }
+
+
     public function getIdWypozyczenia($id){
 
 
@@ -70,6 +90,16 @@ class Wypozyczenie
        return $this->db->runSql($sql,[$id])->fetchColumn();  
 
 
+    }
+
+
+
+    public function updateZakonczona($id)
+    { 
+        $sql="UPDATE wypozyczenia
+        SET zakonczona = 1
+        where id=:id;";
+       return $this->db->runSql($sql,[$id])->fetch();     
     }
 
     

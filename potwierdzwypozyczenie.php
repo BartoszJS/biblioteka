@@ -11,22 +11,32 @@ $errors['id']='';
 
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+   
 
     $pracownik=$_POST['IdPracownika'];
     $czytelnik=$_POST['IdCzytelnika'];
     $ksiazka=$_POST['IdKsiazki'];
     $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
     $rent['Czas']=$_POST['Czas'];
+    $od=date("Y-m-d", strtotime($rent['Data_wypozyczenia']));
 
     
     $book =    $cms->getKsiazka()->getKsiazka($ksiazka); 
     $reader = $cms->getCzytelnik()->getCzytelnik($czytelnik);
     $worker = $cms->getPracownik()->getPracownik($pracownik);
 
+
+    
+
+
+
    
-    $d=strtotime("+".$rent['Czas']." Days");
-    $do=date("Y-m-d", $d);
+    
+
+    $czas=strtotime("+".$rent['Czas']." Days");
+    
+  
+    $do=date("Y-m-d", strtotime("+".$rent['Czas']." Days" ,strtotime($rent['Data_wypozyczenia'])));
 }  
 
 ?>
@@ -84,8 +94,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="hidden" name="IdPracownika" id="IdPracownika" value= "<?=$worker['id'] ?>">
                 <input type="hidden" name="IdCzytelnika" id="IdCzytelnika" value= "<?= $reader['id'] ?> ">
                 <input type="hidden" name="IdKsiazki" id="IdKsiazki"       value= "<?= $book['id'] ?> ">
-                <input type="hidden" name="Data_wypozyczenia" id="Data_wypozyczenia" value= "<?= $rent['Data_wypozyczenia'] ?> ">
+                <input type="hidden" name="Data_wypozyczenia" id="Data_wypozyczenia" value= "<?= $od ?> ">
                 <input type="hidden" name="Czas" id="Czas" value= "<?= $rent['Czas'] ?> ">
+                <input type="hidden" name="Do" id="Do" value= "<?= $do ?> ">
+                <input type="hidden" name="zakonczona" id="zakonczona" value= "<?= '0' ?> ">
 
                 <div class="buttons">
                     <input type="submit" name="update" class="btnbook" value="POTWIERDZ "> <br>

@@ -75,6 +75,7 @@ if (!$ksiazka) {
             <div class="tekst">
                 <h3>Czy na pewno chcesz przywrocić książkę?</h3>
                 <input type="hidden" name="IdKsiazki" id="IdKsiazki" value= "<?=$ksiazka['id'] ?>">
+                <input type="hidden" name="ID" id="ID" value= "<?=$data['ID'] ?>">
 
 
                     <input type="submit" name="update" class="btnprzywroc" value="TAK "> 

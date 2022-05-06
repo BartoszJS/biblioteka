@@ -23,6 +23,8 @@ $ksiazka['liczba_stron']='';
 
 
 
+
+
 $last = $cms->getKsiazka()->getLastId();
 $last=$last+1;
 

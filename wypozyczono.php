@@ -14,6 +14,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $rent['IdKsiazki']=$_POST['IdKsiazki'];
                 $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
                 $rent['Czas']=$_POST['Czas'];
+                $rent['Do']=$_POST['Do'];
+                $rent['zakonczona']=$_POST['zakonczona'];
                 $id=$_POST['IdKsiazki'];
                 $arguments=$rent;
 
