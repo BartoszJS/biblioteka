@@ -13,16 +13,13 @@ $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
 $ksiazka = pdo($pdo,$sql)->fetchAll();
 
 $today=date("Y-m-d");
-
-
-
 $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
     wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
     ksiazki.autor,ksiazki.okladka
     FROM wypozyczenia
     join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
     where wypozyczenia.Do<:today
-    and zakonczona=0
+    and wypozyczenia.zakonczona=0
     order by Do asc
     limit 6;";
 

@@ -90,6 +90,8 @@ if ($count > $show) {                                     // If matches is more 
                 <div class="tekst">
                     
                  <?php /* getRentDate($pojedynczo['ID']); */ ?>
+                   <h4> <?= "Wypożyczona do: " ?> 
+                     <?= $pojedynczo['Do'] ?> </h4> <br>
                     <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                     <?= "Autor: ". $pojedynczo['autor'] ?><br>

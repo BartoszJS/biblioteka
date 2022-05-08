@@ -45,7 +45,7 @@ if (!$czytelnik) {
             <?= $czytelnik['numer_telefonu']?>
             <?= $czytelnik['adres_email']?>
             <?php foreach($wypozyczenie as $pojedynczo) { ?> 
-                <?= $pojedynczo['id'] ?> <br>
+                <?= $pojedynczo['tytul'] ?> <br>
 
             <?php } ?>
 

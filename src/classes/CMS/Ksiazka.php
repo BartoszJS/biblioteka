@@ -83,21 +83,7 @@ class Ksiazka
        return $this->db->runSql($sql)->fetchColumn();  
     }
 
-    //wypozyczone.php
-    public function getNiedostepne($show,$from)
-    {
-        $arguments['show'] = $show;                     
-        $arguments['from'] = $from;
-
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-        where dostepnosc=0
-        order by id desc
-        limit :show
-        OFFSET :from;";
-
-        return $this->db->runSql($sql,$arguments)->fetchAll();                           // Return Token object
-    }
+    
 
 
 
@@ -133,20 +119,51 @@ class Ksiazka
         $arguments['term4'] ='%'.$term.'%';
         
 
-        $sql="SELECT ID,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-        FROM ksiazki  
-            where tytul like :term1
-            and dostepnosc=0
-            or id like :term2
-            and dostepnosc=0 
-            or autor like :term3
-            and dostepnosc=0 
-            or gatunek like :term4
-            and dostepnosc=0 
-            order by id desc
-            limit :show
-            OFFSET :from;";
+        $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
+        wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.ID,ksiazki.tytul,
+        ksiazki.autor,ksiazki.okladka,ksiazki.gatunek,ksiazki.liczba_stron
+        FROM wypozyczenia
+        join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+        where wypozyczenia.zakonczona=0
+        and ksiazki.tytul like :term1
+        or wypozyczenia.zakonczona=0
+        and ksiazki.autor like :term2
+        or wypozyczenia.zakonczona=0
+        and ksiazki.gatunek like :term3
+        or wypozyczenia.zakonczona=0
+        and ksiazki.id like :term4
+        order by Do asc
+        limit :show
+        OFFSET :from;";
+
+        
+      
+
+
+
+
        return $this->db->runSql($sql,$arguments)->fetchAll();    
+    }
+
+
+    //wypozyczone.php
+    public function getNiedostepne($show,$from)
+    {
+        $arguments['show'] = $show;                     
+        $arguments['from'] = $from;
+
+
+    $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
+        wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.ID,ksiazki.tytul,
+        ksiazki.autor,ksiazki.okladka,ksiazki.gatunek,ksiazki.liczba_stron
+        FROM wypozyczenia
+        join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+        where wypozyczenia.zakonczona=0
+        order by Do asc
+        limit :show
+        OFFSET :from;";
+
+        return $this->db->runSql($sql,$arguments)->fetchAll();                           // Return Token object
     }
 
     public function liczNiedostepne()
