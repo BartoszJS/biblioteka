@@ -226,7 +226,27 @@ class Ksiazka
 }
 
 
+public function edytujKsiazke($arguments,$id)
+    { 
 
+        $sql="UPDATE ksiazki
+        set tytul=:tytul,autor=:autor,gatunek=:gatunek,liczba_stron=:liczba_stron,okladka=:okladka,dostepnosc=:dostepnosc
+        where id=:id;";
+ 
+
+    
+       
+
+        try{
+            $this->db->runSql($sql,$arguments)->fetch();  
+            header("Location: ksiazka.php?id=".$id); 
+            exit();
+        }catch(PDOException $e){
+          throw $e;
+        }
+   
+
+    }
  
 
 

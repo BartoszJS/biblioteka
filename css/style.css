@@ -231,10 +231,11 @@ footer a {
 .formularzusun {
    color: #674400;
    background-color: rgb(255, 238, 206);
-   text-align: center;
+   text-align: left;
    margin: auto;
-   width: 50%;
+   width: 100%;
    font-size: 18px;
+   padding-left: 200px;
 }
 
 .formularz .ramka h1 {
@@ -245,6 +246,18 @@ footer a {
 .formularzusun .ramka h1 {
    color: #674400;
    font-weight: 600;
+}
+
+.formularzusun .ramka  {
+   color: #674400;
+   font-weight: 600;
+}
+.formularzusun .ramka .loginbuttons {
+   float: left;
+   
+   text-align: left;
+   width: 800px;
+  
 }
 
 
@@ -1018,6 +1031,9 @@ nav.pagination {
 
 .btnprzywroc:hover {
    cursor: pointer;
+   transition: .5s;
+   background: linear-gradient(217deg, #9c6d00, #452e00);
+   color: white;
 
 }
 

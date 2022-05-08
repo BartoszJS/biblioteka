@@ -53,25 +53,26 @@ if (!$czytelnik) {
 
 
     <form action="usunczytelnika.php?id=<?= $id ?>" method="POST" enctype="multipart/form-data"> 
-    <br><br>
+    <br><br><br><br><br><br>
       <section class="formularzusun">
+      <div class="wypozycz">
       <div class="ramka">
-        <br><br><br><br>
-        <h1>Usunąć czytelnika?(niezalecane):</h1> 
+        
+        <h1>Usunąć czytelnika(niezalecane)?</h1> 
         <h1>Zostaną równiez usuniete wszystkie wypożyczenia czytelnika</h1> <br>
         <h1>
             <?= $czytelnik['id']?>
             <?= $czytelnik['imie']?>
             <?= $czytelnik['nazwisko']?> 
             <?= $czytelnik['numer_telefonu']?>
-            <?= $czytelnik['adres_email']?><br>
+            <?= $czytelnik['adres_email']?><br><br>
         </h1>
        <div class="formularz">
-          <div class="loginbutton">
-            <input type="submit" name="update" class="btnloguj" value="USUŃ" class="btn btn-primary">
-            <a href="czytelnicy.php" class="btnloguj">ANULUJ</a>
+          
+          </div><div class="loginbuttons">
+          <input type="submit" name="update" class="btnprzywroc" value="TAK "> 
+                    <a href="czytelnicy.php" class="btnprzywroc2">ANULUJ</a>   
           <br><br>
-          </div>
           </div>
         </div>
       </section>

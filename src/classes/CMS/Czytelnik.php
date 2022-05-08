@@ -128,7 +128,15 @@ class Czytelnik
  
 
     
-        return $this->db->runSql($sql,$arguments)->fetch();  
+       
+
+        try{
+            $this->db->runSql($sql,$arguments)->fetch();  
+            header("Location: czytelnik.php?id=".$id); 
+            exit();
+        }catch(PDOException $e){
+          throw $e;
+        }
    
 
     }
