@@ -50,7 +50,7 @@ class Wypozyczenie
     public function getWypozyczeniaCzytelnika($id){
 
       $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika, wypozyczenia.IdKsiazki,wypozyczenia.Data_wypozyczenia,wypozyczenia.Czas,
-        ksiazki.id,ksiazki.tytul,ksiazki.autor,ksiazki.dostepnosc,ksiazki.okladka,ksiazki.gatunek
+        wypozyczenia.Do,wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,ksiazki.autor,ksiazki.dostepnosc,ksiazki.okladka,ksiazki.gatunek
         FROM wypozyczenia
         join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
         where IdCzytelnika=:id;";

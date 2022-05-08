@@ -4,7 +4,8 @@ include 'src/bootstrap.php';
 include 'src/database-connection.php'; 
 
 is_admin($session->role); 
-
+$i=0;
+$nieoddane=0;
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Validate id
 if (!$id) {     
@@ -17,7 +18,9 @@ $wypozyczenie = $cms->getWypozyczenie()->getWypozyczeniaCzytelnika($id);
 $czytelnik =$cms->getCzytelnik()->getCzytelnik($id);
 if (!$czytelnik) {   
     header("Location: nieznaleziono.php");  
-    exit();                              // Page not found
+    exit();   
+    
+   
 }
 
 ?>
@@ -34,24 +37,78 @@ if (!$czytelnik) {
 
 </head>
 <body>
-<br><br><br><br><br><br><br><br><br><br>
-<div class="oferta">
+<br><br><br><br><br>
+<div class="czytelnik">
+    <?php
+foreach($wypozyczenie as $pojedynczo) { 
+        $i++;
+        if ($pojedynczo['zakonczona']==0){ 
+            $nieoddane++;
+        }
+
+    }
+   
+    ?>
+
     <div class="ramka">
-                    
-
-            <?= $czytelnik['id']?>
-            <?= $czytelnik['imie']?>
-            <?= $czytelnik['nazwisko']?> 
-            <?= $czytelnik['numer_telefonu']?>
-            <?= $czytelnik['adres_email']?>
-            <?php foreach($wypozyczenie as $pojedynczo) { ?> 
-                <?= $pojedynczo['tytul'] ?> <br>
-
-            <?php } ?>
-
-                     
+                    <div class="tresc">
+                        
+                        <div class="rameczka1">
                             
-    </div>   
+                            <?= "ID: ".$czytelnik['id']?><br>
+                            <?= $czytelnik['imie']?>
+                            <?= $czytelnik['nazwisko']?> <br>
+                            <?= "Nr telefonu: ".$czytelnik['numer_telefonu']?><br>
+                            <?= "Adres email: ".$czytelnik['adres_email']?><br>
+                           
+                            
+                        </div>
+                        <div class="rameczka2">
+                        <?= "Suma wypozyczeń: ".$i ?> <br>
+                        <?= "Liczba nieoddanych: ".$nieoddane ?> <br>
+                            
+                            </div>
+                        
+                    </div>
+                    <?php foreach($wypozyczenie as $pojedynczo) { ?> 
+                        <?php if ($pojedynczo['zakonczona']==0){ ?>
+                        <div class="tresc">
+                            <div class="tekst">
+                            <?= "ID: ".$pojedynczo['id'] ?> <br>
+                            <?= "Tytuł: ".$pojedynczo['tytul'] ?> <br>
+                            <?= "Autor: ".$pojedynczo['autor'] ?> <br>
+                           
+                            
+                           
+                            <?= "Czas wypożyczenia:" ?> 
+                            <?= date("Y-m-d", strtotime($pojedynczo['Data_wypozyczenia'])); ?>  <?= " - ".$pojedynczo['Do'] ?> <br>
+                            </div>
+                            <div class="button">
+                                <a href="oddajksiazke.php?id=<?= $pojedynczo['id'] ?>" class="btnzobacz" >ODDAJ</a><br> 
+                            </div>
+                            
+                        </div>
+                        <?php }else{ ?>
+                            <div class="tresc">
+                            <div class="tekst">
+                            <?= "ID: ".$pojedynczo['id'] ?> <br>
+                            <?= "Tytuł: ".$pojedynczo['tytul'] ?> <br>
+                            <?= "Autor: ".$pojedynczo['autor'] ?> <br>
+                            
+                            
+                           
+                            <?= "Czas wypożyczenia:" ?> 
+                            <?= date("Y-m-d", strtotime($pojedynczo['Data_wypozyczenia'])); ?>  <?= " - ".$pojedynczo['Do'] ?> <br>
+                            </div>
+                           
+                            
+                        </div>
+
+                        <?php }?>
+
+                    <?php } ?>
+               
+    </div >  
     
 </div>
 

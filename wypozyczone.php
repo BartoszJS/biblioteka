@@ -41,6 +41,8 @@ if ($count > $show) {                                     // If matches is more 
     $current_page = ceil($from / $show) + 1;              // Calculate current page
 }
 
+$today= date("Y-m-d");
+
 
 
 ?>
@@ -89,9 +91,17 @@ if ($count > $show) {                                     // If matches is more 
                 </div> 
                 <div class="tekst">
                     
-                 <?php /* getRentDate($pojedynczo['ID']); */ ?>
+                 <?php if($today>$pojedynczo['Do']){ ?>
+                 <div class="wypozyczona">
                    <h4> <?= "Wypożyczona do: " ?> 
-                     <?= $pojedynczo['Do'] ?> </h4> <br>
+                     <?= $pojedynczo['Do'] ?> </h4> 
+                </div>
+                <?php }else{ ?>
+                    <div class="wypozyczonaerror">
+                   <h4> <?= "Wypożyczona do: " ?> 
+                     <?= $pojedynczo['Do'] ?> </h4> 
+                </div>
+                <?php } ?>
                     <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                     <?= "Autor: ". $pojedynczo['autor'] ?><br>
