@@ -1,7 +1,7 @@
 <?php
             
 include 'src/bootstrap.php';    
-include 'src/database-connection.php'; 
+
 
 is_admin($session->role); 
             

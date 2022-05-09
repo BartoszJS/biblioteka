@@ -743,6 +743,7 @@ footer a {
    border-bottom: 1px solid black;
    box-shadow: var(--box-shadow);
    padding: 5px;
+   
 }
 
 
@@ -785,30 +786,54 @@ footer a {
 
 .ksiazki .ksiazkiszukaj {
 
-   clear: both;
+   
    border-bottom: 1px solid black;
    box-shadow: var(--box-shadow);
 }
 
 .ksiazki .buttony {
-   padding: 20px;
+   padding-bottom: 20px;
+   padding-left: 40px;
+   float: left;
+
+
+
+}
+.ksiazki .pasek {
    border-bottom: 1px solid black;
    box-shadow: var(--box-shadow);
+   float: left;
+   width: 100%;
 
 
+}
+
+.ksiazki .btnwypo {
+   padding-bottom: 20px;
+   padding-right: 40px;
+   float: right;
+
+   
 }
 
 .ksiazki .h1 {
    padding-left: 30px;
    padding-bottom: 40px;
    float: left;
-
+   text-align: left;
+  
+}
+.naglowek{
+   border-bottom: 1px solid black;
+   box-shadow: var(--box-shadow);
+   text-align: left;
+   padding-right: 50%;
+   padding-left: 3%;
+   padding-top: 20px;
+   padding-bottom: 20px;
 }
 
-.ksiazki .btnwypo {
-   padding-right: 40px;
-   float: right;
-}
+
 
 .ksiazki .form-search input[type=text] {
    font-size: 18px;
@@ -817,7 +842,7 @@ footer a {
    border-right: none;
    color: wheat;
    border-radius: 4px 0 0 4px;
-   width: 40%;
+   width: 70%;
    background-color: #452e00;
    padding: 5px;
    padding-left: 20px;
@@ -827,14 +852,20 @@ footer a {
 
 .ksiazki .szukaj {
    padding: 30px;
-   float: left;
-   width: 70%;
+   float: right;
+   width: 50%;
+
+  
+}
+.ksiazki .nagl {
+   padding: 30px;
+  width: 45%;
+
+  float: left;
+
 }
 
-.ksiazki .buttony {
-   padding: 30px;
-   padding-right: 40px;
-}
+
 
 
 .btnksiazka {
@@ -877,12 +908,36 @@ footer a {
    text-align: center;
    border-radius: 5px 5px 5px 5px;
    font-weight: 400;
-   width: 200px;
+   width: 300px;
    background: linear-gradient(217deg, #6b5000, #462e00);
    float: right;
 }
 
 .btnwypozycz:hover{
+   transition: .5s;
+   background: linear-gradient(217deg,#9c6d00,#452e00);
+   color: white;
+
+}
+.btnzalogujsie {
+   color: wheat;
+   font-size: 22px;
+   border: 1px solid transparent;
+   border-radius: 3px;
+   padding: 4px;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   box-shadow: var(--box-shadow);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: 5px 5px 5px 5px;
+   font-weight: 400;
+   width: 200px;
+   background: linear-gradient(217deg, #6b5000, #462e00);
+   float: right;
+}
+
+.btnzalogujsie:hover{
    transition: .5s;
    background: linear-gradient(217deg,#9c6d00,#452e00);
    color: white;

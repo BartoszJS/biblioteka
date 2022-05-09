@@ -1,7 +1,7 @@
 <?php
                          // Import Validate class
 include 'src/bootstrap.php';    
-include 'src/database-connection.php'; 
+ 
 
 
 $errors['login']    ='';
@@ -94,7 +94,7 @@ $data['errors']     = $errors;
         </div><br><br>
 
         <div class="loginbutton">
-        <input type="submit" name="update" class="btnwypozycz" value="ZALOGUJ SIĘ" class="btn btn-primary">
+        <input type="submit" name="update" class="btnzalogujsie" value="ZALOGUJ SIĘ" class="btn btn-primary">
         <br><br>
         </div>
         <br>

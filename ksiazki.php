@@ -1,7 +1,7 @@
 <?php                  
 declare(strict_types = 1);     
 include 'src/bootstrap.php';    
-include 'src/database-connection.php'; 
+
 
 
 
@@ -56,10 +56,14 @@ if ($count > $show) {                                     // If matches is more 
 
 
 <div class="ksiazki">
-    <div class="h1"><h1>Dostępne książki:</h1></div>
-    <div class="btnwypo"><a href="wypozyczone.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
-    <div class="ksiazkiszukaj">
-        <div class="szukaj">
+    <div class="pasek">
+        <div class="buttony"><a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄŻKĘ</a> <br><br></div> 
+        <div class="btnwypo"><a href="wypozyczone.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
+    
+    </div>
+    <div class="pasek">
+    <div class="nagl"><h1>Dostępne książki:</h1></div>
+    <div class="szukaj">
             <form action="ksiazki.php" method="get" class="form-search">
                     <label for="search"><span> </span></label>
                     <input type="text" name="term" id="search" placeholder="Wyszukaj tutaj:"  />
@@ -67,10 +71,10 @@ if ($count > $show) {                                     // If matches is more 
                     
             </form>
         </div>
+    
+
     </div>
-    <div class="buttony">
-            <a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄŻKĘ</a> <br><br>
-    </div> 
+    
     
         
    
