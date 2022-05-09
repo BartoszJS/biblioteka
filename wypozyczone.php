@@ -66,7 +66,7 @@ $today= date("Y-m-d");
 <div class="ksiazki">
 <div class="pasek">
         <div class="buttony"><a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄŻKĘ</a> <br><br></div> 
-        <div class="btnwypo"><a href="ksiazki.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
+        <div class="btnwypo"><a href="ksiazki.php" class="btnwypozycz">DOSTĘPNE KSIĄŻKI</a></div>
     
     </div>
     <div class="pasek">
