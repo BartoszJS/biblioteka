@@ -46,7 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 <br><br><br><br><br><br><br>
 <div class="wypozycz">
-    <div class="ramka">
+    <div class="ramku">
             
     <h2>Pomyślnie wypożyczono</h2> <br>
 

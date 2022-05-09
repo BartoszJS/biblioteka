@@ -16,9 +16,22 @@ class Wypozyczenie
     { 
 
 
-      $sql="SELECT ID,IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas
+      $sql="SELECT ID,IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas,Do
       from wypozyczenia
       order by ID desc;";
+                
+                
+              
+        return $this->db->runSql($sql)->fetchAll();   
+                 
+    }
+    public function getAllSort()
+    { 
+
+
+      $sql="SELECT ID,IdPracownika,IdCzytelnika,IdKsiazki,Data_wypozyczenia,Czas,Do
+      from wypozyczenia
+      order by Data_wypozyczenia asc;";
                 
                 
               
@@ -43,6 +56,22 @@ class Wypozyczenie
                   }catch(PDOException $e){
                     throw $e;
                   }
+        //index.php
+    }
+    public function indexWypozyczenia($today)
+    { 
+      $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
+      wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
+      ksiazki.autor,ksiazki.okladka
+      FROM wypozyczenia
+      join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+      where wypozyczenia.Do<:today
+      and wypozyczenia.zakonczona=0
+      order by Do asc
+      limit 6;";
+  
+ 
+  return $this->db->runSql($sql,[$today])->fetchAll();  
         
     }
 
@@ -100,6 +129,20 @@ class Wypozyczenie
         SET zakonczona = 1
         where id=:id;";
        return $this->db->runSql($sql,[$id])->fetch();     
+    }
+
+    public function liczDlaDaty($data)
+    {  
+        
+
+
+    $sql="SELECT COUNT(id) 
+    from wypozyczenia
+    where Data_wypozyczenia =:data;";
+
+
+    return $this->db->runSql($sql,[$data])->fetchColumn(); 
+
     }
 
     

@@ -27,6 +27,18 @@ class Ksiazka
         return $this->db->runSql($sql,$arguments)->fetchAll();                           // Return Token object
     }
 
+    //index.php
+    public function indexKsiazki()
+    {
+        $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
+        FROM ksiazki
+        where dostepnosc=1   
+        order by id desc
+        limit 6;";
+
+        return $this->db->runSql($sql)->fetchAll();                           // Return Token object
+    }
+
 
 
     public function policzTerm($term)

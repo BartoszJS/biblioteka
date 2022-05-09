@@ -5,27 +5,11 @@ include 'src/database-connection.php';
 is_admin($session->role); 
 
 
-$sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
-    FROM ksiazki
-    where dostepnosc=1   
-    order by id desc
-    limit 6;";
-$ksiazka = pdo($pdo,$sql)->fetchAll();
+
+$ksiazka = $cms->getKsiazka()->indexKsiazki();
 
 $today=date("Y-m-d");
-$sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
-    wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
-    ksiazki.autor,ksiazki.okladka
-    FROM wypozyczenia
-    join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
-    where wypozyczenia.Do<:today
-    and wypozyczenia.zakonczona=0
-    order by Do asc
-    limit 6;";
-
-
-
-$przedawnione = pdo($pdo,$sql,[$today])->fetchAll();
+$przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
 
 
 
@@ -44,12 +28,14 @@ $przedawnione = pdo($pdo,$sql,[$today])->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Strona główna</title>
-    <?php include 'includes/header.php'; ?>    
+    <?php include 'includes/header.php'; ?>  
+    
+    <?php include 'includes/wykres.php'; ?>    
     
 
 </head>
 <body>
-<br><br>
+<br><br><br><br>
 <div class="glowna">
     <div class="ramka1">
     

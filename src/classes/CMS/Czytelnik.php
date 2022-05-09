@@ -29,6 +29,7 @@ class Czytelnik
         $sql="SELECT COUNT(id) from czytelnik ;";
        return $this->db->runSql($sql)->fetchColumn();  
     }
+   
 
 
     public function getCzytelnikow($show,$from)
