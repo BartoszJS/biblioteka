@@ -4,16 +4,10 @@ include 'src/bootstrap.php';
 
 is_admin($session->role); 
 
-
-
 $ksiazka = $cms->getKsiazka()->indexKsiazki();
 
 $today=date("Y-m-d");
 $przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
-
-
-
-
 
 
 
@@ -77,7 +71,7 @@ $przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
                 <div class="tekst">
                     <?= "Data oddania: ".$pojedynczo['Do'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
-                    <?= "Data oddania: ".$pojedynczo['autor'] ?><br>
+                    <?= "Autor: ".$pojedynczo['autor'] ?><br>
                     
                 </div>
                 <div class="button1">

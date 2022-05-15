@@ -13,55 +13,55 @@ class CMS
 
     public function __construct($dsn, $username, $password)
     {
-        $this->db = new Database($dsn, $username, $password); // Create Database object
+        $this->db = new Database($dsn, $username, $password); 
     }
 
    
 
     public function getMember()
     {
-        if ($this->member === null) {                    // If $member property null
-            $this->member = new Member($this->db);       // Create Member object
+        if ($this->member === null) {                 
+            $this->member = new Member($this->db);     
         }
-        return $this->member;                            // Return Member object
+        return $this->member;                          
     }
 
     public function getSession()
     {
-        if ($this->session === null) {                   // If $session property null
-            $this->session = new Session($this->db);     // Create Session object
+        if ($this->session === null) {                 
+            $this->session = new Session($this->db);    
         }
-        return $this->session;                           // Return Session object
+        return $this->session;                          
     }
 
     
     public function getKsiazka()
     {
-        if ($this->ksiazka === null) {                     // If $ksiazka property null
-            $this->ksiazka = new Ksiazka($this->db);         // Create Token object
+        if ($this->ksiazka === null) {                   
+            $this->ksiazka = new Ksiazka($this->db);      
         }
-        return $this->ksiazka;                             // Return Token object
+        return $this->ksiazka;                          
     }
     public function getCzytelnik()
     {
-        if ($this->czytelnik === null) {                     // If $czytelnik property null
-            $this->czytelnik = new Czytelnik($this->db);         // Create Token object
+        if ($this->czytelnik === null) {                     
+            $this->czytelnik = new Czytelnik($this->db);      
         }
-        return $this->czytelnik;                             // Return Token object
+        return $this->czytelnik;                          
     }
     public function getWypozyczenie()
     {
-        if ($this->wypozyczenie === null) {                     // If $wypozyczenie property null
-            $this->wypozyczenie = new Wypozyczenie($this->db);         // Create Token object
+        if ($this->wypozyczenie === null) {                     
+            $this->wypozyczenie = new Wypozyczenie($this->db);      
         }
-        return $this->wypozyczenie;                             // Return Token object
+        return $this->wypozyczenie;                          
     }
     public function getPracownik()
     {
-        if ($this->pracownik === null) {                     // If $pracownik property null
-            $this->pracownik = new Pracownik($this->db);         // Create Token object
+        if ($this->pracownik === null) {                     
+            $this->pracownik = new Pracownik($this->db);      
         }
-        return $this->pracownik;                             // Return Token object
+        return $this->pracownik;                          
     }
 
 

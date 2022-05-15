@@ -3,11 +3,11 @@ namespace PhpBook\CMS;                                   // Namespace declaratio
 
 class Member
 {
-    protected $db;                                       // Holds ref to Database object
+    protected $db;                                       
 
     public function __construct(Database $db)
     {
-        $this->db = $db;                                 // Add ref to Database object
+        $this->db = $db;                                 
     }
 
     // Get individual member by id
@@ -15,16 +15,16 @@ class Member
     {
         $sql = "SELECT id, imie, nazwisko, login, data_dolaczenia, telefon, role 
                   FROM pracownik
-                 WHERE id = :id;";                       // SQL to get member
-        return $this->db->runSQL($sql, [$id])->fetch();  // Return member
+                 WHERE id = :id;";                      
+        return $this->db->runSQL($sql, [$id])->fetch(); 
     }
 
     // Get details of all members
     public function getAll(): array
     {
         $sql = "SELECT id, imie, nazwisko, data_dolaczenia, telefon, role 
-                  FROM member;";                         // SQL to get all members
-        return $this->db->runSQL($sql)->fetchAll();      // Return all members
+                  FROM member;";                        
+        return $this->db->runSQL($sql)->fetchAll();      
     }
 
     // Get individual member data using their login
@@ -32,19 +32,19 @@ class Member
     {
         $sql = "SELECT id
                   FROM member
-                 WHERE login = :login;";                         // SQL query to get member id
-        return $this->db->runSQL($sql, [$login])->fetchColumn(); // Run SQL and return member id
+                 WHERE login = :login;";                        
+        return $this->db->runSQL($sql, [$login])->fetchColumn(); 
     }
 
     // Login: returns member data if authenticated, false if not
     public function login(string $login, string $haslo)
     {
-        $sql = "SELECT id, imie, nazwisko, login, haslo, numer_telefonu, role 
+        $sql = "SELECT id, imie, nazwisko, login, haslo, telefon, role 
                   FROM pracownik
-                 WHERE login = :login;";                         // SQL to get member data
-        $member = $this->db->runSQL($sql, [$login])->fetch();    // Run SQL
-        if (!$member) {                                          // If no member found
-            return false;                                        // Return false
+                 WHERE login = :login;";                        
+        $member = $this->db->runSQL($sql, [$login])->fetch(); 
+        if (!$member) {                                         
+            return false;                                       
         }           
         if($haslo == $member['haslo']){
         return $member;
@@ -59,56 +59,44 @@ class Member
     // Get total number of members
     public function count(): int
     {
-        $sql = "SELECT COUNT(id) FROM member;";                  // SQL to count number of members
-        return $this->db->runSQL($sql)->fetchColumn();           // Run SQL and return count
+        $sql = "SELECT COUNT(id) FROM member;";                 
+        return $this->db->runSQL($sql)->fetchColumn();         
     }
 
     // Create a new member
     public function create(array $member): bool
     {
-        $member['haslo'] = password_hash($member['haslo'], PASSWORD_DEFAULT);  // Hash haslo
-        try {                                                          // Try to add member
+        $member['haslo'] = password_hash($member['haslo'], PASSWORD_DEFAULT);  
+        try {                                                          
             $sql="INSERT INTO member(imie,nazwisko,login,haslo,telefon,role)
-            values (:imie,:nazwisko,:login,:haslo,:telefon,'member');"; // SQL to add member
-            $this->db->runSQL($sql, $member);                          // Run SQL
-            return true;                                               // Return true
-        } catch (\PDOException $e) {                                   // If PDOException thrown
-            if ($e->errorInfo[1] === 1062) {                           // If error indicates duplicate entry
-                return false;                                          // Return false to indicate duplicate name
-            }                                                          // Otherwise
-            throw $e;                                                  // Re-throw exception
+            values (:imie,:nazwisko,:login,:haslo,:telefon,'member');"; 
+            $this->db->runSQL($sql, $member);                          
+            return true;                                               
+        } catch (\PDOException $e) {                                   
+            if ($e->errorInfo[1] === 1062) {                           
+                return false;                                          
+            }                                                          
+            throw $e;                                                  
         }
     }
 
     // Update an existing member
     public function update(array $member): bool
     {
-        unset($member['data_dolaczenia'],  $member['telefon']);                // Remove data_dolaczenia and member from array
-        try {                                                         // Try to update member
+        unset($member['data_dolaczenia'],  $member['telefon']);               
+        try {                                                        
             $sql = "UPDATE member 
                        SET imie = :imie, nazwisko = :nazwisko, login = :login, role = :role 
-                     WHERE id = :id;";                                // SQL to update member
-            $this->db->runSQL($sql, $member);                         // Run SQL
-            return true;                                              // Return true
-        } catch (\PDOException $e) {                                  // If PDOException thrown
-            if ($e->errorInfo[1] == 1062) {                           // If a duplicate (login in use)
-                return false;                                         // Return false
-            }                                                         // Any other error
-            throw $e;                                                 // Re-throw exception
+                     WHERE id = :id;";                               
+            $this->db->runSQL($sql, $member);                      
+            return true;                                           
+        } catch (\PDOException $e) {                             
+            if ($e->errorInfo[1] == 1062) {                        
+                return false;                               
+            }                                                      
+            throw $e;                                               
         }
     }
 
-    // Upload member profile image
-
-
-    // Update member haslo
-    public function passwordUpdate(int $id, string $haslo): bool
-    {
-        $hash = password_hash($haslo, PASSWORD_DEFAULT);           // Hash the haslo
-        $sql = 'UPDATE member 
-                   SET haslo = :haslo 
-                 WHERE id = :id;';                                    // SQL to update haslo
-        $this->db->runSQL($sql, ['id' => $id, 'haslo' => $hash,]); // Run SQL
-        return true;                                                  // Return true
-    }
+  
 }
