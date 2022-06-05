@@ -21,8 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 $cms->getKsiazka()->updateDostepnosc($id);
                 $ksiazki = $cms->getWypozyczenie()->insertWypozyczenie($arguments);  
-                
-                
+                    
 }
 
 

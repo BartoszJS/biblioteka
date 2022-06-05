@@ -13,14 +13,10 @@ foreach($wypozyczenia as $pojedynczo){
     $d=strtotime($pojedynczo['Data_wypozyczenia']);
     $data=date("Y-m-d ", $d);
 
-
     $count =$cms->getWypozyczenie()->liczDlaDaty($pojedynczo['Data_wypozyczenia']);
     $liczba=strtotime($pojedynczo['Data_wypozyczenia']);
     
     array_push( $dataPoints, array("label" => $data, "y" => $count));
-
-
-    
 }
  
 ?>
@@ -54,7 +50,6 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	}]
 });
 chart.render();
- 
 }
 </script>
 </head>

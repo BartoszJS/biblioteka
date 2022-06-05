@@ -37,6 +37,7 @@ class Member
     }
 
     // Login: returns member data if authenticated, false if not
+    
     public function login(string $login, string $haslo)
     {
         $sql = "SELECT id, imie, nazwisko, login, haslo, telefon, role 
@@ -52,8 +53,6 @@ class Member
 
             return false;
         }
-        // $authenticated = password_verify($haslo, $member['haslo']); // Passwords match?
-        // return ($authenticated ? $member : false);               // Return member or false
     }
 
     // Get total number of members

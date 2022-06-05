@@ -34,7 +34,7 @@ class Ksiazka
         FROM ksiazki
         where dostepnosc=1   
         order by id desc
-        limit 6;";
+        limit 3;";
 
         return $this->db->runSql($sql)->fetchAll();                           // Return Token object
     }
@@ -65,10 +65,10 @@ class Ksiazka
 
     public function getDostepneTerm($show,$from,$term)
     {
-        $arguments['show'] = $show;                       // Add to array for pagination
+        $arguments['show'] = $show;                      
         $arguments['from'] = $from; 
         $arguments['term1'] ='%'.$term.'%'; 
-        $arguments['term2'] ='%'.$term.'%';            // three times as placeholders
+        $arguments['term2'] ='%'.$term.'%';           
         $arguments['term3'] ='%'.$term.'%';
         $arguments['term4'] ='%'.$term.'%';
         
@@ -225,17 +225,19 @@ class Ksiazka
     
     public function dodajKsiazke($arguments,$last)
     { 
-    $sql="INSERT INTO ksiazki(tytul,autor,dostepnosc,okladka,gatunek,liczba_stron)
-    values            (:tytul,:autor,1,:okladka,:gatunek,:liczba_stron);";
+        $sql="INSERT INTO ksiazki(tytul,autor,dostepnosc,okladka,gatunek,liczba_stron)
+        values            (:tytul,:autor,1,:okladka,:gatunek,:liczba_stron);";
   
-    try{
-    $this->db->runSql($sql,$arguments)->fetch();  
-    header("Location: ksiazka.php?id=".$last); 
-    exit();
-    }catch(PDOException $e){
-      throw $e;
+        try{
+            $this->db->runSql($sql,$arguments)->fetch();  
+            header("Location: ksiazka.php?id=".$last); 
+            exit();
+        }
+        catch(PDOException $e)
+        {
+            throw $e;
+        }
     }
-}
 
 
 public function edytujKsiazke($arguments,$id)

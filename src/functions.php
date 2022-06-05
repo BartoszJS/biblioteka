@@ -24,6 +24,8 @@ function is_member($role)
     }
 }
 
+
+
 function is_admin($role)
 {
     if ($role !== 'admin') {                                   // If role is not admin

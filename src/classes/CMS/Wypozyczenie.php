@@ -56,8 +56,10 @@ class Wypozyczenie
                   }catch(PDOException $e){
                     throw $e;
                   }
-        //index.php
+        
     }
+    
+    //index.php
     public function indexWypozyczenia($today)
     { 
       $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
@@ -68,7 +70,7 @@ class Wypozyczenie
       where wypozyczenia.Do<:today
       and wypozyczenia.zakonczona=0
       order by Do asc
-      limit 6;";
+      limit 3;";
   
  
   return $this->db->runSql($sql,[$today])->fetchAll();  
