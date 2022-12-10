@@ -39,7 +39,9 @@ $polecane = $cms->getWypozyczenie()->indexWypozyczenia();
 <div class="back">
     <div class="content_back">
         <p>Biblioteka nr 1 w Radomiu</p>
-        <button class="button_back">Zobacz książki</button>
+        <a href="ksiazki.php">
+            <button class="button_back">Zobacz książki</button>
+        </a>
     </div>
 </div>
 <div class="glowna">
