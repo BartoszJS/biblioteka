@@ -1,9 +1,12 @@
 <?php
             
-include 'src/bootstrap.php';    
+include 'src/bootstrap.php';  
 
 
-is_admin($session->role); 
+loggedin($session->id);
+
+
+
 
 $errors['id']='';
 
@@ -29,8 +32,13 @@ if (!$ksiazka) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Wypożycz</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
@@ -50,39 +58,25 @@ if (!$ksiazka) {
                 <?= "Liczba stron: ".$ksiazka['liczba_stron']?> <br>
             </div>
             <div class="tekst">
-             <h3>Dane pracownika:</h3>
+             <h3>Twoje dane:</h3>
                 <?= "ID: ".$_SESSION['id'] ?><br>
-                <?= $_SESSION['imie'] ?>
-                <?= $_SESSION['nazwisko'] ?>
+                <?= $_SESSION['imie'] ?><br>
+                <?= $_SESSION['nazwisko'] ?><br>
+                <?= $_SESSION['login'] ?><br>
+                <?= $_SESSION['numer_telefonu'] ?>
 
 
                
             </div>
         <form action="potwierdzwypozyczenie.php" method="POST" enctype="multipart/form-data"> 
-            <input type="hidden" name="IdPracownika" id="IdPracownika" value= "<?=$_SESSION['id'] ?>">
+            <input type="hidden" name="IdPracownika" id="IdPracownika" value= "1">
             <input type="hidden" name="IdKsiazki" id="IdKsiazki" value= "<?= $ksiazka['id'] ?> ">
-            <div class="tekst">
-                <div class="form-group">
-                <label for="title">  <h3>Id klienta:</h3> </label>
-                <input type="text" name="IdCzytelnika" id="IdCzytelnika" placeholder="Wpisz id klienta:"
-                    class="form-control1">
-                    <span class="errors"><?= $errors['id'] ?></span>
-                </div><br>
-                <h3> Data wypożyczenia(R-M-D): </h3>
-                <input type="text" name="Data_wypozyczenia" id="Data_wypozyczenia" placeholder="Podaj datę wypożyczenia:"  class="form-control1" value="<?= date("Y-m-d") ?>">
-                <br> 
-                <label for="dni"> <h3> Czas wypożyczenia: </h3></label> 
-                <div class="czas">
-                    <input type="text" name="Czas" id="Czas" placeholder="Podaj liczbe dni:"  class="form-control2" value="30">
-                </div>
-                <div class="dni">
-                    <span>dni</span><br><br>
-                </div>
-               
-            </div>
-          
+            <input type="hidden" name="IdCzytelnika" id="IdCzytelnika" value= "<?=$_SESSION['id'] ?>">
+            <input type="hidden" name="Data_wypozyczenia" id="Data_wypozyczenia"  value="<?= date("Y-m-d") ?>">
+            <input type="hidden" name="Czas" id="Czas"  value="3">
+             <p class="tekst">Książka zostanie zarezerwowana na 3 dni, <br> w tym czasie proszę odebrać książkę z naszej biblioteki</p>
                 <div class="buttons">
-                    <input type="submit" name="update" class="btnbook" value="WYPOŻYCZ"> 
+                    <input type="submit" name="update" class="btnbook" value="ZAREZERWUJ"> 
                         
                 </div>
         </form>  

@@ -2,12 +2,9 @@
 include 'src/bootstrap.php';    
 
 
-is_admin($session->role); 
-
 $ksiazka = $cms->getKsiazka()->indexKsiazki();
-
 $today=date("Y-m-d");
-$przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
+$polecane = $cms->getWypozyczenie()->indexWypozyczenia();
 
 
 
@@ -22,14 +19,29 @@ $przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Strona główna</title>
-    <?php include 'includes/header.php'; ?>  
     
-    <?php include 'includes/wykres.php'; ?>    
+
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
+    <?php include 'includes/header.php'; ?>    
+    <?php }?>
+
+
+
+
+ 
     
 
 </head>
 <body>
-<br><br><br><br>
+
+<div class="back">
+    <div class="content_back">
+        <p>Biblioteka nr 1 w Radomiu</p>
+        <button class="button_back">Zobacz książki</button>
+    </div>
+</div>
 <div class="glowna">
     <div class="ramka1">
     
@@ -56,26 +68,21 @@ $przedawnione = $cms->getWypozyczenie()->indexWypozyczenia($today);
         <?php }?>
         
     </div>
-    <div class="ramka2">
+    <div class="ramka1">
       
-    <h1>Przedawnione książki:</h1><br>
-        <?php foreach($przedawnione as $pojedynczo) { ?> 
+    <h1>Polecane ksiązki:</h1><br>
+        <?php foreach($polecane as $pojedynczo) { ?> 
             <div class="ramka">
-            <div class="column">
+                <div class="column">
                     <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
                 </div> 
-                <?php /* $today=date("Y-m-d");
-                     $suma=$today-$pojedynczo['Do'];
-                     */
-                 ?>
                 <div class="tekst">
-                    <?= "Data oddania: ".$pojedynczo['Do'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
-                    <?= "Autor: ".$pojedynczo['autor'] ?><br>
-                    
+                    <?= "Autor: ". $pojedynczo['autor'] ?><br>
+                    <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
                 </div>
                 <div class="button1">
-                    <a href="oddajksiazke.php?id=<?= $pojedynczo['id'] ?>" class="btnzobacz" >ZGLOŚ</a><br> 
+                    <a href="ksiazka.php?id=<?= $pojedynczo['id'] ?>" class="btnzobacz" >ZOBACZ</a><br> 
                 </div>
                 
             </div>

@@ -2,7 +2,7 @@
 include 'src/bootstrap.php';    
 
 
-is_admin($session->role); 
+loggedin($session->id); 
 
 $term  = filter_input(INPUT_GET, 'term');                 // Get search term
 $show  = filter_input(INPUT_GET, 'show', FILTER_VALIDATE_INT) ?? 10; // Limit
@@ -55,8 +55,13 @@ $today= date("Y-m-d");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Wypożyczone</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>

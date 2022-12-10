@@ -1,8 +1,6 @@
 <?php
-                         // Import Validate class
 include 'src/bootstrap.php';    
  
-
 
 $errors['login']    ='';
 $errors['haslo']    ='';
@@ -61,7 +59,13 @@ $data['errors']     = $errors;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Logowanie</title>
- 
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
+    <?php include 'includes/header.php'; ?>    
+    <?php }?>
+
+
 </head>
 <body >
 <div class="body">
@@ -71,6 +75,11 @@ $data['errors']     = $errors;
 <br><br>
     <section class="formularz">
     <div class="ramka">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <br>
       <h1>Logowanie</h1> 
 <br>
@@ -92,11 +101,13 @@ $data['errors']     = $errors;
                  class="form-control">
                  <span class="errors"><?= $errors['haslo'] ?></span>
         </div><br><br>
-
+        <p>Nie masz konta? <a href="rejestracja.php" >Zarejestruj sie </a></p>
+        <br>
         <div class="loginbutton">
         <input type="submit" name="update" class="btnzalogujsie" value="ZALOGUJ SIĘ" class="btn btn-primary">
         <br><br>
         </div>
+        
         <br>
 
         

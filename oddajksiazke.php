@@ -31,8 +31,13 @@ if (!$ksiazka) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Oddaj książkę</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
@@ -68,7 +73,7 @@ if (!$ksiazka) {
                 <?= "ID: ".$idWypo ?><br>
                 <?= $czytelnik['imie'] ?>
                 <?= $czytelnik['nazwisko'] ?><br>
-                <?= "E-mail: ".$czytelnik['adres_email'] ?><br>
+                <?= "E-mail: ".$czytelnik['login'] ?><br>
                 <?= "Nr telefonu: ".$czytelnik['numer_telefonu'] ?><br>
             </div>
             <form action="oddajpotwierdz.php?id=<?= $ksiazka['id'] ?>" method="POST" enctype="multipart/form-data"> 

@@ -34,7 +34,7 @@ class Ksiazka
         FROM ksiazki
         where dostepnosc=1   
         order by id desc
-        limit 3;";
+        limit 6;";
 
         return $this->db->runSql($sql)->fetchAll();                           // Return Token object
     }

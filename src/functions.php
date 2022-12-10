@@ -16,9 +16,17 @@ function html_escape($text): string
     return htmlspecialchars($text, ENT_QUOTES, 'UTF-8', false); // Return escaped string
 }
 
+function loggedin($id)
+{
+    if($id === 0) {                                   // If role is not admin
+        header('Location: logowanie.php');                                 // Send to home page
+        exit;                                                  // Stop code running
+    }
+}
+
 function is_member($role)
 {
-    if ($role !== 'admin' and $role !== 'member') {                                   // If role is not admin
+    if ($role !== 'admin' or $role !== 'member') {                                   // If role is not admin
         header('Location: logowanie.php');                                 // Send to home page
         exit;                                                  // Stop code running
     }
@@ -35,16 +43,6 @@ function is_admin($role)
 }
 
 
-function getRentDate(int $IdKsiazki){
-    $sql="SELECT Data_wypozyczenia
-        FROM wypozyczenia
-        where IdKsiazki=:IdKsiazki
-        order by id desc;";
-
-
-
-    return $this->db->runSQL($sql)->fetchColumn();;
-}
 
 
 

@@ -1,9 +1,12 @@
 <?php
             
-include 'src/bootstrap.php';    
+include 'src/bootstrap.php';  
 
 
-is_admin($session->role); 
+loggedin($session->id);
+
+
+
 
 $errors['id']='';
 
@@ -49,8 +52,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Wypożycz</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
@@ -62,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img class="image-resize" src="uploads/<?= html_escape($book['okladka'] ?? 'blank.png') ?>">
             </div>
             <div class="tekst">
-                <h2>Podsumowanie wypożyczenia:</h2><br>
+                <h2>Podsumowanie rezerwacji:</h2><br>
                 <h3>Książka:</h3>
                 <?= "ID: ".$book['id']?> <br>
                 <?= "Tytuł: ".$book['tytul']?><br>
@@ -70,22 +78,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <?= "Gatunek: ".$book['gatunek']?> <br>
                 <?= "Liczba stron: ".$book['liczba_stron']?> <br>
             </div>
-            <div class="tekst">
-             <h3>Dane pracownika:</h3>
-                <?= "ID: ".$worker['id'] ?><br>
-                <?=        $worker['imie'] ?>
-                <?=        $worker['nazwisko'] ?>
-            </div>
+           
             <div class="tekst">
             <h3>Dane czytelnika:</h3>
                 <?= "ID: ".$reader['id'] ?><br>
                 <?=        $reader['imie'] ?>
                 <?=        $reader['nazwisko'] ?><br>
-                <?= "Adres e-mail: ".$reader['adres_email'] ?><br>
+                <?= "Adres e-mail: ".$reader['login'] ?><br>
                 <?= "Nr telefonu: ".$reader['numer_telefonu'] ?><br>
             </div>
             <div class="tekst">
-            <h3>Czas wypożyczenia :</h3>
+            <h3>Czas rezerwacji :</h3>
                 <?= "Od: ".$rent['Data_wypozyczenia'] ?><br>
                 <?= "Do: ".$do ?><br>
             </div>

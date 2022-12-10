@@ -1,27 +1,27 @@
 <?php
-            
-include 'src/bootstrap.php';    
+
+include 'src/bootstrap.php';
 
 
-is_admin($session->role); 
-            
+loggedin($session->id);
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                
-                $rent['IdPracownika']=$_POST['IdPracownika'];
-                $rent['IdCzytelnika']=$_POST['IdCzytelnika'];
-                $rent['IdKsiazki']=$_POST['IdKsiazki'];
-                $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
-                $rent['Czas']=$_POST['Czas'];
-                $rent['Do']=$_POST['Do'];
-                $rent['zakonczona']=$_POST['zakonczona'];
-                $id=$_POST['IdKsiazki'];
-                $arguments=$rent;
 
-                $cms->getKsiazka()->updateDostepnosc($id);
-                $ksiazki = $cms->getWypozyczenie()->insertWypozyczenie($arguments);  
-                    
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $rent['IdPracownika']=$_POST['IdPracownika'];
+    $rent['IdCzytelnika']=$_POST['IdCzytelnika'];
+    $rent['IdKsiazki']=$_POST['IdKsiazki'];
+    $rent['Data_wypozyczenia']=$_POST['Data_wypozyczenia'];
+    $rent['Czas']=$_POST['Czas'];
+    $rent['Do']=$_POST['Do'];
+    $rent['zakonczona']=$_POST['zakonczona'];
+    $id=$_POST['IdKsiazki'];
+    $arguments=$rent;
+
+    $cms->getKsiazka()->updateDostepnosc($id);
+    $ksiazki = $cms->getWypozyczenie()->insertWypozyczenie($arguments);
 }
 
 
@@ -38,8 +38,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Wypożycz</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
@@ -47,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="wypozycz">
     <div class="ramku">
             
-    <h2>Pomyślnie wypożyczono</h2> <br>
+    <h2>Pomyślnie zarezerwowano</h2> <br>
 
     <h3>Powrót do strony głownej <a href="index.php">strony głównej</a></h3>
         

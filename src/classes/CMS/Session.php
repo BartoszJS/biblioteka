@@ -4,8 +4,7 @@ namespace PhpBook\CMS;                                   // Declare namespace
 class Session
 {                                                        // Define Session class
     public $id;                                          // Store member's id
-    public $imie;                                    // Store member's imie
-    public $role;                                        // Store member's role
+    public $imie;                                    // Store member's imie                                  
 
     public function __construct()
     {                                                    // Runs when object created
@@ -14,9 +13,8 @@ class Session
         $this->imie = $_SESSION['imie'] ?? '';   // Set imie property of this object
         $this->nazwisko = $_SESSION['nazwisko'] ?? '';   // Set imie property of this object
         $this->login = $_SESSION['login'] ?? '';   // Set imie property of this object
-        $this->nazwisko = $_SESSION['nazwisko'] ?? '';   // Set imie property of this object
         $this->numer_telefonu = $_SESSION['numer_telefonu'] ?? '';   // Set imie property of this object
-        $this->role     = $_SESSION['role'] ?? 'public'; // Set role property of this object
+        
     }
 
     // Create new session
@@ -29,7 +27,7 @@ class Session
         $_SESSION['imie'] =  $member['imie'];     // Add imie to session
         $_SESSION['nazwisko']     = $member['nazwisko'];
         $_SESSION['numer_telefonu']     = $member['numer_telefonu'];
-        $_SESSION['role']     = $member['role'];        // Add role to session
+      
     }
 
 
@@ -49,7 +47,7 @@ class Session
         $_SESSION['imie'] =  '';     // Add imie to session
         $_SESSION['nazwisko']     = '';
         $_SESSION['numer_telefonu']     = '';
-        $_SESSION['role'] = 'public';                                 // Empty $_SESSION superglobal
+                                
         $param    = session_get_cookie_params();         // Get session cookie parameters
         setcookie(session_name(), '', time() - 2400, $param['path'], $param['domain'],
             $param['secure'], $param['httponly']);       // Clear session cookie

@@ -3,7 +3,9 @@ include 'src/bootstrap.php';
 
 
 
-is_admin($session->role); 
+loggedin($session->id);
+
+
             
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,7 +32,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Wypożycz</title>
-    <?php include 'includes/header.php'; ?>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
+    <?php include 'includes/header.php'; ?>    
+    <?php }?>
+
+
 </head>
 <body>
 <br><br><br><br><br><br><br>

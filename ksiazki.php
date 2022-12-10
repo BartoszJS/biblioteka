@@ -47,8 +47,13 @@ if ($count > $show) {                                     // If matches is more 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Książki</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
@@ -56,55 +61,64 @@ if ($count > $show) {                                     // If matches is more 
 
 
 <div class="ksiazki">
-    <div class="pasek">
-        <div class="buttony"><a href="dodajksiazke.php" class="btnwypozycz">DODAJ KSIĄŻKĘ</a> <br><br></div> 
-        <div class="btnwypo"><a href="wypozyczone.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
-    
-    </div>
-    <div class="pasek">
+     
+    <div class="dostepne">
+
     <div class="nagl"><h1>Dostępne książki:</h1></div>
     <div class="szukaj">
-            <form action="ksiazki.php" method="get" class="form-search">
-                    <label for="search"><span> </span></label>
-                    <input type="text" name="term" id="search" placeholder="Wyszukaj tutaj:"  />
-                    <input type="submit" value="Szukaj" class="btnksiazka" />
+        <form action="ksiazki.php" method="get" class="form-search">
+                <label for="search"><span> </span></label>
+                <input type="text" name="term" id="search" placeholder="Wyszukaj tutaj:"  />
+                <input type="submit" value="Szukaj" class="btnksiazka" />
                     
-            </form>
-        </div>
+        </form>
+    </div>
+    
     
 
     </div>
+<!--   
+    <div class="btnwypozyczone"><a href="wypozyczone.php" class="btnwypozycz">WYPOŻYCZONE KSIĄŻKI</a></div>
+    -->
+
+
     
+</div>
     
+
+    <div class="books_container">
         
-   
     <?php foreach($ksiazki as $pojedynczo) { ?> 
-    <a href="ksiazka.php?id=<?= $pojedynczo['ID'] ?>">
-        <div class="ramka">
-            <div class="rameczka">
-                <div class="column">
-                    <img class="image-resize" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
-                </div> 
-                <div class="tekst">
+        <div class="books_container-book">
+        
+    
+       <div class="books_container-book-img">
+                    <img class="books_container-book-img-img" src="uploads/<?= html_escape($pojedynczo['okladka'] ?? 'blank.png') ?>">
+                </div>
+               <div class="books_container-book-text">
                     
                     <?= "ID: ".$pojedynczo['ID'] ?><br>
                     <?= "Tytuł: ".$pojedynczo['tytul'] ?><br>
                     <?= "Autor: ". $pojedynczo['autor'] ?><br>
                     <?= "Gatunek: ".$pojedynczo['gatunek'] ?><br>
                     <?= "Liczba stron: ".$pojedynczo['liczba_stron'] ?><br>
+                    </div>
+              
+              <div class="books_container-book-button">
+                        <a href="ksiazka.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">ZOBACZ</a> 
+                        <a href="wypozycz.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">ZAREZERWUJ</a> 
                 </div>
-                <div class="buttons">
-                        <a href="wypozycz.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">WYPOZYCZ</a> <br>
-                        <a href="edytujksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">EDYTUJ</a> <br>
-                        <a href="usunksiazke.php?id=<?= $pojedynczo['ID'] ?>" class="btnksiazka">USUŃ</a> <br>
-                      
-                </div>
-            </div>
-        </div>
-    </a>
+                 
+           
+            
+   
+    </div>
     <?php }?>
+
+    </div>
+   
     
-</div>
+ 
 
 <div class="clear"></div>
 

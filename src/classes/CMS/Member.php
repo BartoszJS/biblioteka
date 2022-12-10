@@ -40,19 +40,15 @@ class Member
     
     public function login(string $login, string $haslo)
     {
-        $sql = "SELECT id, imie, nazwisko, login, haslo, telefon, role 
-                  FROM pracownik
+        $sql = "SELECT id, imie, nazwisko, login, haslo, numer_telefonu
+                  FROM czytelnik
                  WHERE login = :login;";                        
         $member = $this->db->runSQL($sql, [$login])->fetch(); 
-        if (!$member) {                                         
+        if (!$member) {                                       
             return false;                                       
         }           
-        if($haslo == $member['haslo']){
-        return $member;
-        }else{
-
-            return false;
-        }
+        $authenticated = password_verify($haslo, $member['haslo']); 
+        return ($authenticated ? $member : false);  
     }
 
     // Get total number of members
@@ -67,8 +63,9 @@ class Member
     {
         $member['haslo'] = password_hash($member['haslo'], PASSWORD_DEFAULT);  
         try {                                                          
-            $sql="INSERT INTO member(imie,nazwisko,login,haslo,telefon,role)
-            values (:imie,:nazwisko,:login,:haslo,:telefon,'member');"; 
+        
+        $sql="INSERT INTO czytelnik(imie,nazwisko,numer_telefonu,login,haslo)
+        values            (:imie,:nazwisko,:numer_telefonu,:login,:haslo);";
             $this->db->runSQL($sql, $member);                          
             return true;                                               
         } catch (\PDOException $e) {                                   
@@ -77,6 +74,10 @@ class Member
             }                                                          
             throw $e;                                                  
         }
+
+
+    
+    
     }
 
     // Update an existing member

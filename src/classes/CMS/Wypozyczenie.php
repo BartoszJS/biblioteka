@@ -60,21 +60,30 @@ class Wypozyczenie
     }
     
     //index.php
-    public function indexWypozyczenia($today)
+    // Przedawnione ksiażki
+  //   public function indexWypozyczenia($today)
+  //   { 
+  //     $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
+  //     wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
+  //     ksiazki.autor,ksiazki.okladka
+  //     FROM wypozyczenia
+  //     join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
+  //     where wypozyczenia.Do<:today
+  //     and wypozyczenia.zakonczona=0
+  //     order by Do asc
+  //     limit 6;";
+//   return $this->db->runSql($sql,[$today])->fetchAll();  
+// }
+
+      public function indexWypozyczenia()
     { 
-      $sql="SELECT wypozyczenia.IdPracownika, wypozyczenia.IdCzytelnika,wypozyczenia.IdKsiazki,
-      wypozyczenia.Data_wypozyczenia, wypozyczenia.Czas, wypozyczenia.Do, wypozyczenia.zakonczona,ksiazki.id,ksiazki.tytul,
-      ksiazki.autor,ksiazki.okladka
-      FROM wypozyczenia
-      join ksiazki on wypozyczenia.IdKsiazki = ksiazki.id
-      where wypozyczenia.Do<:today
-      and wypozyczenia.zakonczona=0
-      order by Do asc
-      limit 3;";
-  
- 
-  return $this->db->runSql($sql,[$today])->fetchAll();  
-        
+      $sql="SELECT id,tytul,autor,dostepnosc,okladka,gatunek,liczba_stron
+      FROM ksiazki
+      where dostepnosc=1   
+      order by id asc
+      limit 6;";
+
+      return $this->db->runSql($sql)->fetchAll();  
     }
 
     //czytelnik.php

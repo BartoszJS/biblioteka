@@ -4,1343 +4,1368 @@
 /* header */
 
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   outline: none;
-   border: none;
-   text-decoration: none;
-   font-family: 'Montserrat', sans-serif;
-   /* background-color: #674400; */
-
-
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: #674400; */
 }
 
 body {
-   background-color: rgb(255, 238, 206);
+  background-color: rgb(255, 246, 230);
 }
 
 :root {
-   --box-shadow: 0.4rem 0.5rem .5rem rgba(8, 0, 0, 0.1);
-   --box-shadowx: 0rem 0.5rem 0.7rem -0.7rem #111;
+  --box-shadow: 0.4rem 0.5rem 0.5rem rgba(8, 0, 0, 0.1);
+  --box-shadowx: 0rem 0.5rem 0.7rem -0.7rem #111;
 }
 
 .error {
-   color: red;
-   padding-bottom: 15px;
+  color: red;
+  padding-bottom: 15px;
 }
 
 .errors {
-   color: red;
-   padding-bottom: 15px;
+  color: red;
+  padding-bottom: 15px;
+}
+
+.cont {
+  background-color: rgb(255, 251, 245);
+  width: 100%;
+  -webkit-box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  -moz-box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  border-bottom: 1px solid black;
+}
+.center {
+}
+
+/* header */
+
+.header_list{
+  height: 90px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.list_item{
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  list-style: none;
+  font-size: 20px;
+}
+.list_item:hover{
+  background-color: rgb(56, 37, 0);
+  border-radius: 5px;
+  transition: .2s;
+}
+#list_item_hamburger{
+  color: wheat;
+  font-size: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  list-style: none;
+}
+.div_item{
+  width: 100%;
+  text-align: center;
+  background-color: rgba(69, 46, 0, 0.9);
+  z-index: 100000;
+  padding: 10px;
+}
+#div_items{
+  display: none;
+}
+
+#list_item_hamburger{
+  display: none;
 }
 
 
 
-/* header */
-.gora {
-   width: 100%;
-   height: 20px;
-   display: block;
-   position: fixed;
-   z-index: 10000;
-   opacity: 1;
+.active{
+  color: wheat;
+}
+#div_items{
+  display: none;
+ }
+
+@media screen and (width<800px) {
+  #list_item_hamburger{
+    display: flex;
+  }
+  
+  .list_item{
+    display: none;
+  }
+
 }
 
 .gora .nazwa {
-   color: wheat;
-   float: right;
-   font-size: 14;
-   padding-right: 20px;
-
+  color: wheat;
+  float: right;
+  font-size: 14;
+  padding-right: 20px;
 }
 
 .header {
-   padding-top: 18px;
-   width: 100%;
-   height: 120px;
-   display: block;
-   background-color: #452e00;
-   position: fixed;
-   box-shadow: var(--box-shadow);
-   border-bottom: 1px solid white;
-   opacity: 0.9;
-   z-index: 10;
+  padding-top: 5px;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(69, 46, 0, 0.9);
+  position: fixed;
+  box-shadow: var(--box-shadow);
+  z-index: 5000;
+  backdrop-filter: blur(2px);
 }
-
 
 .inner_header {
-   width: 75%;
-   height: 100%;
-   display: block;
-   margin: 0 auto;
-
-
+  width: 75%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
-
 .navigatione li span:hover {
-   /* background: #674400;
+  /* background: #674400;
    transition: .3s;
    cursor: pointer; */
 }
 
 .navigatione li .active:hover {
-   background: #674400;
-   transition: .3s;
-   cursor: pointer;
+  background: #674400;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .navigatione .active:hover {
-   background: #674400;
-   transition: .3s;
-   cursor: pointer;
-
+  background: #674400;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-
-
-
-
 .logo_container {
-   width: 220px;
-   text-align: center;
-   float: left;
-   padding: 30px;
-   color: wheat;
-
-
+  width: 220px;
+  text-align: center;
+  float: left;
+  padding: 25px;
+  color: wheat;
 }
 
 .logo_container a {
-   color: wheat;
-
+  color: wheat;
 }
 
 .logo_container a:hover {
-   color: black;
+  color: black;
 }
 
 .logo_container:hover {
-   color: black;
-   background-color: wheat;
-   transition: .3s;
-   cursor: pointer;
-   border-radius: 10px 10px 10px 10px;
+  color: black;
+  background-color: wheat;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .navigatione {
-   float: right;
-   height: 100%;
-
+  float: right;
+  height: 100%;
 }
 
 .navigatione .li1:hover {
-   color: black;
-   background-color: wheat;
-   transition: .3s;
-
-
+  color: black;
+  background-color: wheat;
+  transition: 0.3s;
 }
 
-
-
 .navigatione .li2:hover {
-   color: black;
-   background-color: wheat;
-   cursor: pointer;
-   transition: .3s;
-
+  color: black;
+  background-color: wheat;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .navigatione .li3:hover {
-   cursor: auto;
-
+  cursor: auto;
 }
 
 .navigatione li {
-   vertical-align: middle;
-   display: table;
-   float: left;
-   padding-right: 10px;
-   padding-left: 10px;
-   padding-top: 28px;
-   width: 200px;
-   height: 100%;
-   color: wheat;
-   border-left: 1px solid wheat;
-
-   font-size: 17px;
-   text-align: center;
-
-
+  vertical-align: middle;
+  display: table;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 35px;
+  width: 150px;
+  height: 100%;
+  color: wheat;
+  border-left: 1px solid wheat;
+  font-size: 17px;
+  text-align: center;
 }
 
 .navigatione .li2 {
-   vertical-align: middle;
-   display: table;
-   float: left;
-   padding-right: 10px;
-   padding-left: 10px;
-   padding-top: 28px;
-   width: 100px;
-   height: 100%;
-   color: wheat;
-   border-right: 1px solid wheat;
-   font-size: 17px;
-   text-align: center;
-
-
+  vertical-align: middle;
+  display: table;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 35px;
+  width: 150px;
+  height: 100%;
+  color: wheat;
+  border-right: 1px solid wheat;
+  font-size: 17px;
+  text-align: center;
 }
 
 .navigatione li a {
-   color: wheat;
-   ;
-
+  color: wheat;
 }
 
-
-
 footer {
-   font-size: 0.8rem;
-   text-align: right;
-   color: rgb(0, 0, 0);
-   padding: 10px;
-   clear: both;
-   padding-top: 50px;
+  font-size: 0.8rem;
+  text-align: right;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  clear: both;
+  padding-top: 50px;
 }
 
 footer a {
-   color: #674400;
+  color: #674400;
 }
 
 /* header koniec*/
 /* logowanie*/
 
-
 .formularz {
-   color: #674400;
-   background-color: rgb(255, 238, 206);
-   text-align: center;
-   margin: auto;
-   width: 25%;
-   font-size: 18px;
+  color: #674400;
+  background-color: rgb(255, 246, 230);
+  text-align: center;
+  margin: auto;
+  width: 300px;
+  font-size: 18px;
 }
 
 .formularzusun {
-   color: #674400;
-   background-color: rgb(255, 238, 206);
-   color: rgb(255, 238, 207);
-   text-align: left;
-   margin: auto;
-   width: 100%;
-   font-size: 18px;
-   padding-left: 200px;
+  color: #674400;
+  background-color: rgb(255, 246, 230);
+  color: rgb(255, 238, 207);
+  text-align: left;
+  margin: auto;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 200px;
 }
 
 .formularz .ramka h1 {
-   color: #674400;
-   font-weight: 600;
+  color: #674400;
+  font-weight: 600;
 }
 
 .formularzusun .ramka h1 {
-   color: #674400;
-   font-weight: 600;
+  color: #674400;
+  font-weight: 600;
 }
 
-.formularzusun .ramka  {
-   color: #674400;
-   font-weight: 600;
+.formularzusun .ramka {
+  color: #674400;
+  font-weight: 600;
 }
 .formularzusun .ramka .loginbuttons {
-   float: left;
-   
-   text-align: left;
-   width: 800px;
-  
+  float: left;
+
+  text-align: left;
+  width: 800px;
 }
 
-#chartContainer{
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 150px;
-   
+#chartContainer {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 150px;
 }
-
-
 
 .form-control {
-   display: block;
-   width: 100%;
-   height: calc(2.25rem + 2px);
-   padding: .375rem .75rem;
-   font-size: 1rem;
-   line-height: 1.5;
-   background-clip: padding-box;
-   border-radius: .25rem;
-   box-shadow: 3px 3px 7px rgb(39, 39, 39);
-   background-color: #ffffff;
-   color: #674400;
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 7px rgb(39, 39, 39);
+  background-color: #ffffff;
+  color: #674400;
 }
-
 
 .form-group {
-   text-align: left;
+  text-align: left;
 }
 
-
-
 .btndodaj {
-   color: wheat;
-   font-size: 18px;
-   background: #674400;
-   ;
-   /* display: inline-block;
+  color: wheat;
+  font-size: 18px;
+  background: #674400;
+  /* display: inline-block;
   width: min-content;
   white-space: nowrap; */
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 5px;
-   line-height: 1.7;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px;
+  line-height: 1.7;
 
-   text-transform: uppercase;
-   text-align: right;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
+  text-transform: uppercase;
+  text-align: right;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  background: linear-gradient(217deg, #6b5000, #462e00);
 }
 
 .btndodaj:hover {
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
-
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
-
-
 .loginbutton {
-   text-align: right;
-   padding-right: 20px;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .utworz {
-   padding-left: 20px;
-   font-size: 16px;
-   text-align: left;
-   padding-top: 20px;
-   color: rgb(255, 255, 255);
+  padding-left: 20px;
+  font-size: 16px;
+  text-align: left;
+  padding-top: 20px;
+  color: rgb(255, 255, 255);
 }
 
 .utworz a {
-   font-weight: 600;
-   color: #e7c800;
+  font-weight: 600;
+  color: #e7c800;
 }
 
 /* logowanie koniec*/
 
 /* index*/
 
+.back {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(../photos/background.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  z-index: 15;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.content_back {
+  text-align: center;
+  font-size: 32px;
+  text-shadow: 0px 0px 1px #000;
+  padding-bottom: 30px;
+  color: white;
+}
+.button_back {
+  background-color: rgba(69, 46, 0, 0.7);
+  box-shadow: var(--box-shadow);
+  font-size: 26px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  backdrop-filter: blur(2px);
+  color: white;
+}
+.button_back:hover {
+  background-color: rgb(117, 78, 0);
+  transition: 0.3s;
+  color: white;
+}
 
 .glowna {
-   width: 100%;
-   padding: 100px;
+  width: 100%;
+  padding: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .glowna .ramka1 {
-   padding: 20px;
-   width: 48%;
-   float: left;
-   border: 1px solid black;
-   box-shadow: var(--box-shadow);
+  border: 1px solid black;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
 }
 
-
-
 .glowna .ramka1 .column .image-resize {
-   height: 123px;
-   width: 15%;
-   border-radius: 1%;
-   box-shadow: var(--box-shadow);
-   border-radius: 1%;
-   overflow: hidden;
-   object-position: center center;
-   object-fit: cover;
-   float: left;
+  height: 123px;
+  width: 100px;
+  border-radius: 1%;
+  box-shadow: var(--box-shadow);
+  border-radius: 1%;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
+  float: left;
 }
 
 .glowna .ramka1 .ramka {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   padding-bottom: 40px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  padding-bottom: 40px;
 }
 
 .glowna .ramka1 .przerwa {
-
-   padding: 20px;
-   clear: both;
-
+  padding: 20px;
+  clear: both;
 }
 
 .ramka1 .ramka:last-child {
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
 }
-
 
 .ramka1 .ramka .tekst {
+  padding-left: 25px;
+  padding-top: 30px;
 
-   padding-left: 25px;
-   padding-top: 30px;
-
-
-   width: 60%;
-   float: left;
-   ;
-   font-size: 16px;
+  width: 60%;
+  float: left;
+  font-size: 16px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .glowna .ramka2 {
-   padding: 20px;
-   width: 48%;
-   float: right;
-   border: 1px solid black;
-   box-shadow: var(--box-shadow);
-
+  border: 1px solid black;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
 }
 
 .glowna .ramka2 .column .image-resize {
-   height: 123px;
-   width: 15%;
-   border-radius: 1%;
-   box-shadow: var(--box-shadow);
-   border-radius: 1%;
-   overflow: hidden;
-   object-position: center center;
-   object-fit: cover;
-   float: left;
+  height: 123px;
+  width: 15%;
+  border-radius: 1%;
+  box-shadow: var(--box-shadow);
+  border-radius: 1%;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
+  float: left;
 }
 
 .glowna .ramka2 .ramka {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   padding-bottom: 40px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  padding-bottom: 40px;
 }
 
 .glowna .ramka2 .przerwa {
-
-   padding: 20px;
-   clear: both;
-
+  padding: 20px;
+  clear: both;
 }
 
 .ramka2 .ramka:last-child {
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
 }
-
 
 .ramka2 .ramka .tekst {
+  padding-left: 25px;
+  padding-top: 30px;
 
-   padding-left: 25px;
-   padding-top: 30px;
-
-
-   width: 60%;
-   float: left;
-   ;
-   font-size: 16px;
+  width: 60%;
+  float: left;
+  font-size: 16px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .button1 {
-
-   padding-top: 45px;
+  padding-top: 45px;
 }
 
 .btnzobacz {
-   color: wheat;
-   font-size: 22px;
-   background: #533200;
-   ;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-   /* display: inline-block;
+  color: wheat;
+  font-size: 22px;
+  background: #533200;
+  background: linear-gradient(217deg, #6b5000, #462e00);
+  /* display: inline-block;
       width: min-content;
       white-space: nowrap; */
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 10px;
-   line-height: 1.7;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: right;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   clear: both;
-   width: 6%;
-   height: 40px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 10px;
+  line-height: 1.7;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: right;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  clear: both;
+  width: 100px;
+  height: 40px;
+}
+
+@media (width < 1250px) {
+  .glowna {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+@media (width < 700px) {
+  .glowna {
+    padding: 0px;
+  }
+  .btnzobacz {
+    font-size: 18px;
+  }
+  .glowna .ramka1 .ramka {
+    padding-bottom: 0px;
+  }
+  .button1 {
+    float: right;
+  }
+  .ramka1 .ramka .tekst {
+    padding-bottom: 10px;
+  }
+  .button1 {
+    padding-top: 5px;
+  }
 }
 
 .btnloguj {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   background: #533200;
-   ;
-   /* display: inline-block;
+  display: block;
+  color: wheat;
+  font-size: 22px;
+  background: #533200;
+  /* display: inline-block;
    width: min-content;
    white-space: nowrap; */
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 5px;
-   line-height: 1.7;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   clear: both;
-   width: 60%;
-   float: right;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px;
+  line-height: 1.7;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  clear: both;
+  width: 60%;
+  float: right;
+  background: linear-gradient(217deg, #6b5000, #462e00);
 }
 
-
 .btnzobacz:hover {
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
-
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
 .btndodaj:hover {
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
 .btnszukajo:hover {
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 .btnszukaj:hover {
-   cursor: pointer;
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
+  cursor: pointer;
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
 .dodajbutton {
-   float: right;
-   padding-right: 10%;
-   padding-bottom: 25px;
-   box-shadow: var(--box-shadow);
+  float: right;
+  padding-right: 10%;
+  padding-bottom: 25px;
+  box-shadow: var(--box-shadow);
 }
 
 .btndodaj {
-   color: wheat;
-   font-size: 22px;
-   background: #533200;
-   ;
-   /* display: inline-block;
+  color: wheat;
+  font-size: 22px;
+  background: #533200;
+  /* display: inline-block;
    width: min-content;
    white-space: nowrap; */
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 5px;
-   line-height: 1.7;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   clear: both;
-   width: 100%;
-   float: right;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 5px;
+  line-height: 1.7;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  clear: both;
+  width: 100%;
+  float: right;
+  background: linear-gradient(217deg, #6b5000, #462e00);
 }
-
-
-
-
-
 
 /* index koniec*/
 /* cztelnicy*/
 
 .czytelnicy .ramka1 {
+  border-bottom: 1px solid black;
 
-   border-bottom: 1px solid black;
-
-   box-shadow: var(--box-shadow);
-   border-radius: 5px 5px 5px 5px;
-   width: 70%;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 40px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px 5px 5px 5px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 40px;
 }
 
 .czytelnicy .ramka3 {
-
-   border: 1px solid red;
+  border: 1px solid red;
 }
 
 .czytelnicy {
-   width: 100%;
-   padding: 100px;
-   margin-left: auto;
-   margin-right: auto;
+  width: 100%;
+  padding: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .czytelnicy .przyciski {
-   padding-top: 15px;
-   padding-left: 75%;
+  padding-top: 15px;
+  padding-left: 75%;
 }
 
-
-
 .czytelnicy .ramkaczytelnicy {
-   padding: 20px;
-   width: 100%;
-   border-top: 1px solid #674400;
-   box-shadow: var(--box-shadow);
-   height: 100px;
-   margin-left: auto;
-   margin-right: auto;
+  padding: 20px;
+  width: 100%;
+  border-top: 1px solid #674400;
+  box-shadow: var(--box-shadow);
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .czytelnicy h1 {
-   text-align: left;
-   padding-top: 15px;
-   padding-left: 30px;
-   padding-bottom: 30px;
-   border-bottom: 1px solid #452e00;
-   clear: both;
-   box-shadow: var(--box-shadow);
+  text-align: left;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #452e00;
+  clear: both;
+  box-shadow: var(--box-shadow);
 }
 
 .czytelnicy .ramkaczytelnicy {
-   clear: both;
+  clear: both;
 }
 
-
 .czytelnicy .ramkaczytelnicy .id {
-   height: 50px;
-   float: left;
-   font-size: 20px;
-   padding-right: 20px;
-
-
-
+  height: 50px;
+  float: left;
+  font-size: 20px;
+  padding-right: 20px;
 }
 
 .czytelnicy .tekst {
-   float: left;
-   width: 60%;
-   padding-bottom: none;
-   padding-left: 35px;
-   color: black;
-
-
+  float: left;
+  width: 60%;
+  padding-bottom: none;
+  padding-left: 35px;
+  color: black;
 }
 
 .czytelnicy .szukaj {
-   float: left;
-   width: 63%;
-   padding-left: 40px;
-   padding-bottom: 35px;
-   box-shadow: var(--box-shadowx);
-   padding-left: 80px;
+  float: left;
+  width: 63%;
+  padding-left: 40px;
+  padding-bottom: 35px;
+  box-shadow: var(--box-shadowx);
+  padding-left: 80px;
 }
 
 .btnszukajo {
-   color: wheat;
-   font-size: 22px;
-   background: #533200;
-   ;
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 20%;
-   height: 40px;
-   vertical-align: middle;
-   background: linear-gradient(217deg, #6d5200, #452e00);
-   cursor: pointer;
-   box-shadow: var(--box-shadow);
-
-
+  color: wheat;
+  font-size: 22px;
+  background: #533200;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  width: 20%;
+  height: 40px;
+  vertical-align: middle;
+  background: linear-gradient(217deg, #6d5200, #452e00);
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
 }
 
-.czytelnicy .form-search input[type=text] {
-   font-size: 18px;
-   line-height: 1.6;
-   vertical-align: middle;
-   border-right: none;
-   color: wheat;
-   border-radius: 4px 0 0 4px;
-   width: 60%;
-   background-color: #452e00;
-   padding: 5px;
-   padding-left: 20px;
-   box-shadow: var(--box-shadow);
+.czytelnicy .form-search input[type='text'] {
+  font-size: 18px;
+  line-height: 1.6;
+  vertical-align: middle;
+  border-right: none;
+  color: wheat;
+  border-radius: 4px 0 0 4px;
+  width: 60%;
+  background-color: #452e00;
+  padding: 5px;
+  padding-left: 20px;
+  box-shadow: var(--box-shadow);
 }
-
-
-
-
 
 /* cztelnicy koneic*/
 /* index koniec*/
 
-
-
-
 /* ksiazki */
 
-.ksiazki {
-   padding-top: 150px;
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
-
+.books_container {
+  padding-top: 50px;
+  width: 80%;
+  border-radius: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.books_container-book {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  box-shadow: var(--box-shadow);
+}
+.books_container-book-img {
+  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.books_container-book-img-img {
+  height: 300px;
+  width: 200px;
+  max-width: 350px;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
+}
 
+.books_container-book-text {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.books_container-book-button {
+  grid-area: 2 / 2 / 3 / 3;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnwypozyczone {
+  padding: 60px;
+  padding-right: 8%;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+}
+
+.ksiazki {
+  padding-top: 120px;
+  height: 230px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dostepne {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+}
 
 .ksiazki .ramka {
-   width: 50%;
-   margin-left: auto;
-   margin-right: auto;
-   height: 400px;
-   float: left;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   padding: 5px;
-   
+  margin-left: auto;
+  margin-right: auto;
+  height: 400px;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  padding: 5px;
 }
 
-
-
-
 .ksiazki .column {
-   height: 400px;
-   width: 40%;
-   float: left;
-   padding-left: 3%;
-   padding-top: 20px;
+  height: 360px;
+  width: 40%;
+  float: left;
+  padding-left: 3%;
+  padding-top: 20px;
 }
 
 .ksiazki .rameczka .column .image-resize {
-   height: 350px;
-   width: 100%;
-   border-radius: 1%;
-   box-shadow: var(--box-shadow);
-   overflow: hidden;
-   object-position: center center;
-   object-fit: cover;
-
+  height: 350px;
+  width: 230px;
+  border-radius: 1%;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
 }
 
 .ksiazki .tekst {
-   padding-top: 20px;
-   padding-left: 280px;
-   color: black;
-   font-size: 20px;
-   height: 210px;
+  padding-top: 40px;
+  padding-left: 280px;
+  color: black;
+  font-size: 20px;
+  height: 300px;
 }
 
 .ksiazki .buttons {
-   float: right;
-   padding-right: 3%;
-
+  float: right;
+  padding-right: 3%;
 }
 
-
-
 .ksiazki .ksiazkiszukaj {
-
-   
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
 }
 
 .ksiazki .buttony {
-   padding-bottom: 20px;
-   padding-left: 40px;
-   float: left;
-
-
-
+  padding-bottom: 20px;
+  padding-left: 40px;
+  float: left;
 }
 .ksiazki .pasek {
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   float: left;
-   width: 100%;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
 
-
+  width: 100%;
 }
 
 .ksiazki .btnwypo {
-   padding-bottom: 20px;
-   padding-right: 40px;
-   float: right;
-
-   
+  padding-bottom: 20px;
+  padding-right: 40px;
+  float: right;
 }
 
 .ksiazki .h1 {
-   padding-left: 30px;
-   padding-bottom: 40px;
-   float: left;
-   text-align: left;
-  
+  padding-left: 30px;
+  padding-bottom: 40px;
+  float: left;
+  text-align: left;
 }
-.naglowek{
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   text-align: left;
-   padding-right: 50%;
-   padding-left: 3%;
-   padding-top: 20px;
-   padding-bottom: 20px;
+.naglowek {
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  text-align: left;
+  padding-right: 50%;
+  padding-left: 3%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-
-
-.ksiazki .form-search input[type=text] {
-   font-size: 18px;
-   line-height: 1.95;
-   vertical-align: middle;
-   border-right: none;
-   color: wheat;
-   border-radius: 4px 0 0 4px;
-   width: 70%;
-   background-color: #452e00;
-   padding: 5px;
-   padding-left: 20px;
-   box-shadow: var(--box-shadow);
-   float: left;
+.ksiazki .form-search input[type='text'] {
+  margin-right: 5px;
+  font-size: 18px;
+  line-height: 1.95;
+  vertical-align: middle;
+  border-right: none;
+  color: wheat;
+  border-radius: 5px;
+  width: 70%;
+  background-color: #452e00;
+  padding: 5px;
+  padding-left: 20px;
+  box-shadow: var(--box-shadow);
+  float: left;
 }
 
 .ksiazki .szukaj {
-   padding: 30px;
-   float: right;
-   width: 50%;
-
-  
+  padding: 30px;
+  float: right;
+  width: 100%;
 }
 .ksiazki .nagl {
-   padding: 30px;
-  width: 45%;
+  padding: 30px;
+  width: 100%;
 
   float: left;
-
 }
-
-
-
 
 .btnksiazka {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 150px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
+  display: block;
+  color: wheat;
+  font-size: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  background: linear-gradient(217deg, #6b5000, #462e00);
 }
 
-.btnksiazka:hover{
-   cursor: pointer;
-   transition: .5s;
-   background: linear-gradient(217deg,#9c6d00,#452e00);
-   color: white;
-
+.btnksiazka:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
 .btnwypozycz {
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 300px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-   float: right;
+  color: wheat;
+  font-size: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  width: 300px;
+  background: linear-gradient(217deg, #6b5000, #462e00);
+  float: right;
 }
 
-.btnwypozycz:hover{
-   transition: .5s;
-   background: linear-gradient(217deg,#9c6d00,#452e00);
-   color: white;
-
+.btnwypozycz:hover {
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 .btnzalogujsie {
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 200px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-   float: right;
+  color: wheat;
+  font-size: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  width: 200px;
+  background: linear-gradient(217deg, #6b5000, #462e00);
+  float: right;
 }
 
-.btnzalogujsie:hover{
-   transition: .5s;
-   background: linear-gradient(217deg,#9c6d00,#452e00);
-   color: white;
-
+.btnzalogujsie:hover {
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
+@media screen and (width<1100px) {
+  .dostepne {
+    grid-template-columns: 1fr;
+  }
+  .ksiazki {
+    width: 90%;
+    height: 390px;
+  }
+  .ksiazki .ramka {
+    height: 700px;
+  }
+  .ksiazki .tekst {
+    padding-top: 400px;
+    padding-left: 0px;
+  }
+  .ksiazki .buttons {
+    padding-top: 200px;
+  }
+  .ksiazki .form-search input[type='text'] {
+    width: 100%;
+  }
+  .btnwypozycz {
+    font-size: 20px;
+    padding: 0;
+    width: 200px;
+  }
+  .books_container {
+    grid-template-columns: 1fr;
+  }
+  .btnksiazka {
+    font-size: 16px;
+  }
+  .books_container-book-img-img {
+    height: 220px;
+    width: 145px;
+  }
+  .books_container-book-text {
+    font-size: 14px;
+  }
+}
 
 /* ksiazki koniec */
 
 /* pagination */
 
 nav.pagination {
-
-   text-align: center;
+  text-align: center;
 }
 
 .pagination ul {
-   display: inline-block;
-   list-style-type: none;
-   margin: 0 0 2em 0;
-   padding: 0;
-
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 0 2em 0;
+  padding: 0;
 }
 
 .pagination ul li {
-   display: inline-block;
-   width: 30px;
+  display: inline-block;
+  width: 30px;
 }
 
 .pagination a.active {
-   color: #ffffff;
-   border: 2px solid #ff7b00;
-   background-color: #c88200;
-   padding: .1rem .5rem;
+  color: #ffffff;
+  border: 2px solid #ff7b00;
+  background-color: #c88200;
+  padding: 0.1rem 0.5rem;
 }
 
 .btnpage,
 .btnpage-search {
-   color: #fff;
-   background: #533600;
-   display: inline-block;
-   width: min-content;
-   white-space: nowrap;
-   border: 1px solid transparent;
-   border-radius: 5px;
-   padding: .1rem .5rem;
-   line-height: 1.7;
-   vertical-align: middle;
-   text-transform: uppercase;
-
+  color: #fff;
+  background: #533600;
+  display: inline-block;
+  width: min-content;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 0.1rem 0.5rem;
+  line-height: 1.7;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
 
 .clear {
-   padding: 40px;
-   clear: both;
+  padding: 40px;
+  clear: both;
 }
 
 /* pagination koniec */
 
-
 /* ksiazka */
 
 .ksiazka {
-
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
+  padding: 1%;
+  padding-top: 120px;
+  width: 80%;
+  border-radius: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  -webkit-box-shadow: 6px 6px 24px -10px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 6px 6px 24px -10px rgba(66, 68, 90, 1);
+  box-shadow: 6px 6px 24px -10px rgba(66, 68, 90, 1);
 }
 
-.ksiazka .ramka {
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   height: 550px;
+.ksiazka_img {
+  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ksiazka_img-img {
+  height: 500px;
+  width: 70%;
+  max-width: 350px;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
+}
+.ksiazka_tekst {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+.ksiazka_button {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ksiazka_button-button {
+  color: wheat;
+  font-size: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  width: 300px;
+  background: linear-gradient(217deg, #6b5000, #462e00);
+  float: right;
 }
 
-
-
-.ksiazka .okladka {
-   height: 500px;
-   width: 45%;
-   float: left;
-   padding-left: 20%;
-   padding-top: 20px;
+.ksiazka_button-button:hover {
+  transition: 0.5s;
+  background: linear-gradient(217deg, #9c6d00, #452e00);
+  color: white;
 }
 
-.ksiazka .okladka .image-resize {
-   height: 100%;
-   width: 100%;
-   border-radius: 1%;
-   box-shadow: var(--box-shadow);
-   overflow: hidden;
-   object-position: center center;
-   object-fit: cover;
-   float: left;
+@media screen and (width<1100px) {
+  .ksiazka {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+
+  .ksiazka_img {
+    grid-area: 1 / 1 / 4 / 2;
+  }
+  .ksiazka_img-img {
+    height: 400px;
+    width: 95%;
+    max-width: 350px;
+    overflow: hidden;
+    object-position: center center;
+    object-fit: cover;
+  }
+  .ksiazka_tekst {
+    grid-area: 4 / 1 / 6 / 2;
+  }
+  .ksiazka_button {
+    grid-area: 6 / 1 / 7 / 2;
+  }
 }
-
-.ksiazka .tekst {
-   padding-top: 40px;
-   padding-left: 47%;
-   padding-bottom: 140px;
-   font-size: 22px;
-}
-
-.ksiazka .buttons {
-   padding-bottom: 10px;
-   padding-left: 200px;
-   float: left;
-}
-
-.ksiazka .buttons .btnbook {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 150px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
-}
-
-.btnbook:hover {
-   cursor: pointer;
-
-}
-
-.btnprzywroc {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 150px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-   float: left;
-
-}
-
-.btnprzywroc:hover {
-   cursor: pointer;
-   transition: .5s;
-   background: linear-gradient(217deg, #9c6d00, #452e00);
-   color: white;
-
-}
-
-.btnprzywroc2 {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 150px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-   float: left;
-
-}
-
-.btnprzywroc2:hover {
-   cursor: pointer;
-   transition: .5s;
-   background: linear-gradient(217deg,#9c6d00,#452e00);
-   color: white;
-   
-   
-}
-
-
-
-
-
-
 
 /* ksiazka koneic */
+
 /* wypozycz */
 
 .wypozycz {
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wypozycz .ramka {
-   padding-top: 20px;
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   height: 750px;
+  padding-top: 20px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  height: 750px;
 }
 .wypozycz .ramku {
-   padding-top: 20px;
-   border-top: 1px solid black;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   height: 750px;
-   text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  height: 750px;
+  text-align: center;
 }
 
-
-
 .wypozycz .okladka {
-   height: 580px;
-   width: 40%;
-   float: left;
-   padding-left: 13%;
-   padding-top: 80px;
+  height: 580px;
+  width: 40%;
+  float: left;
+  padding-left: 13%;
+  padding-top: 80px;
 }
 
 .wypozycz .okladka .image-resize {
-   height: 100%;
-   width: 100%;
-   border-radius: 1%;
-   box-shadow: var(--box-shadow);
-   overflow: hidden;
-   object-position: center center;
-   object-fit: cover;
-
+  height: 100%;
+  width: 100%;
+  border-radius: 1%;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
 }
 
 .wypozycz .tekst {
-   width: 60%;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   font-size: 22px;
-   float: right;
-   padding-left: 3%;
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  box-shadow: var(--box-shadow);
+  font-size: 22px;
+  float: right;
+  padding-left: 3%;
 }
 
 .wypozycz .buttons {
-
-   padding-bottom: 10px;
-   padding-right: 200px;
-   padding-left: 3%;
-   text-align: center;
-   margin-left: 40%;
-   margin-right: 60%;
-   clear: both;
+  padding-bottom: 10px;
+  padding-right: 200px;
+  padding-left: 3%;
+  text-align: center;
+  margin-left: 40%;
+  margin-right: 60%;
+  clear: both;
 }
 
 .wypozycz .buttons .btnbook {
-   display: block;
-   color: wheat;
-   font-size: 22px;
-   border: 1px solid transparent;
-   border-radius: 3px;
-   padding: 4px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-   box-shadow: var(--box-shadow);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: 5px 5px 5px 5px;
-   font-weight: 400;
-   width: 150px;
-   background: linear-gradient(217deg, #6b5000, #462e00);
-
+  display: block;
+  color: wheat;
+  font-size: 22px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  font-weight: 400;
+  width: 200px;
+  background: linear-gradient(217deg, #6b5000, #462e00);
 }
 
 .form-control1 {
-   display: block;
-   width: 23%;
-   height: calc(2.25rem + 2px);
-   padding: .375rem .75rem;
-   font-size: 1rem;
-   line-height: 1.5;
-   background-clip: padding-box;
-   border-radius: .25rem;
-   box-shadow: 3px 3px 7px rgb(39, 39, 39);
-   background-color: #ffffff;
-   color: #674400;
+  display: block;
+  width: 23%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 7px rgb(39, 39, 39);
+  background-color: #ffffff;
+  color: #674400;
 }
 
 .form-control2 {
-   display: block;
-   width: 95%;
-   height: calc(2.25rem + 2px);
-   padding: .375rem .75rem;
-   font-size: 1rem;
-   line-height: 1.5;
-   background-clip: padding-box;
-   border-radius: .25rem;
-   box-shadow: 3px 3px 7px rgb(39, 39, 39);
-   background-color: #ffffff;
-   color: #674400;
+  display: block;
+  width: 95%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border-radius: 0.25rem;
+  box-shadow: 3px 3px 7px rgb(39, 39, 39);
+  background-color: #ffffff;
+  color: #674400;
 }
 
 .czas {
-   float: left;
+  float: left;
 }
-
-
 
 /* wypozycz koneic */
 /* czytelnik */
 
+.czytelnik_h1 {
+  text-align: center;
+  padding-top: 120px;
+}
+
 .czytelnik {
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
-
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 20px;
+  padding: 15px;
 }
 
-.czytelnik .ramka {
-   width: 80%;
-   margin-left: auto;
-   margin-right: auto;
-   padding-left: 50px;
-   padding: 30px;
-
+.czytelnik_ksiazki {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 80%;
+  font-size: 18px;
+  background-color: rgb(255, 251, 245);
+  -webkit-box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  -moz-box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  box-shadow: -2px -1px 36px -20px rgba(66, 68, 90, 1);
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
-.czytelnik .rameczka1{
-   padding-left: 100px;
+.czytelnik-book {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  -webkit-box-shadow: 0px 9px 11px -13px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 0px 9px 11px -13px rgba(66, 68, 90, 1);
+  box-shadow: 0px 9px 11px -13px rgba(66, 68, 90, 1);
 }
 
-
-
-.czytelnik .tresc:first-child {
-  
-   width: 100%;
-   margin-left: auto;
-   margin-right: auto;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   padding: 20px;
-
-   padding-bottom: 130px;
+.czytelnik-book-dane {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.czytelnik .tresc {
-  
-   width: 100%;
-   margin-left: auto;
-   margin-right: auto;
-   border-bottom: 1px solid black;
-   box-shadow: var(--box-shadow);
-   padding: 20px;
-
-   padding-bottom: 100px;
+.czytelnik-book-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.czytelnik .tekst {
-   padding-left: 50px;
-   width: 60%;
-   float: left;
+.czytelnik-book-img-img {
+  height: 120px;
+  width: 80px;
+  max-width: 350px;
+  overflow: hidden;
+  object-position: center center;
+  object-fit: cover;
 }
 
-.czytelnik .button {
-   padding-top: 20px;
-   padding-right: 50px;
-
-   float: right;
+@media screen and (width<800px) {
+  .czytelnik {
+    grid-template-columns: 1fr;
+  }
+  .czytelnik_ksiazki {
+    width: 95%;
+  }
 }
-
-.wypozyczona {
-   color: black;
-}
-
-.wypozyczona {
-   color: red;
-}
-
-.rameczka1 {
-   width: 50%;
-   float: left;
-   font-size: 20px;
-   font-weight: 600;
-}
-
-.rameczka2 {
-   width: 50%;
-   float: left;
-   font-size: 20px;
-   font-weight: 600;
-}
-
-
-
-
 
 /* czytelnik koniec */

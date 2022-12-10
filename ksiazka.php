@@ -3,8 +3,6 @@
 include 'src/bootstrap.php';    
 
 
-is_admin($session->role); 
-
 
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT); // Validate id
 if (!$id) {     
@@ -27,36 +25,38 @@ if (!$ksiazka) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Książka</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
+
 
 </head>
 <body>
-<br><br><br><br><br><br><br>
-<div class="ksiazka">
-    <div class="ramka">
-            <div class="okladka">
-                <img class="image-resize" src="uploads/<?= html_escape($ksiazka['okladka'] ?? 'blank.png') ?>">
-            </div>
-            <div class="tekst">
+    <div class="ksiazka">
+        
+ 
+
+        <div class="ksiazka_img">
+
+            <img class="ksiazka_img-img" src="uploads/<?= html_escape($ksiazka['okladka'] ?? 'blank.png') ?>">
+        </div>
+        <div class="ksiazka_tekst">
                 <?= "ID: ".$ksiazka['id']?> <br>
                 <?= "Tytuł: ".$ksiazka['tytul']?><br>
                 <?= "Autor: ".$ksiazka['autor']?> <br>
                 <?= "Gatunek: ".$ksiazka['gatunek']?> <br>
                 <?= "Liczba stron: ".$ksiazka['liczba_stron']?> <br>
-            </div>
-            <div class="buttons">
-                        <a href="wypozycz.php?id=<?= $ksiazka['id'] ?>" class="btnbook">WYPOZYCZ</a> <br>
-                        <a href="edytujksiazke.php?id=<?= $ksiazka['id'] ?>" class="btnbook">EDYTUJ</a> <br>
-                        <a href="usunksiazke.php?id=<?= $ksiazka['id'] ?>" class="btnbook">USUŃ</a> <br>
-                      
-            </div>
-
-                     
-                            
-    </div>   
-    
-</div>
+        </div>
+        <div class="ksiazka_button">
+            <a href="wypozycz.php?id=<?= $ksiazka['id'] ?>" class="ksiazka_button-button">ZAREZERWUJ</a> 
+        </div>
+                
+                
+    </div>
+            
 
     <?php include 'includes/footer.php'; ?>  
 </body>

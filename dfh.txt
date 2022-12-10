@@ -1,0 +1,75 @@
+
+<header class="gora">
+
+<?php $nazwa=$_SESSION['imie']." ".$_SESSION['nazwisko']; ?>
+ 
+            <p class="nazwa"> <span> Zalogowano : <?=" ".$nazwa ?></span> </p>
+
+</header>
+<script src="https://kit.fontawesome.com/2a11efd126.js" crossorigin="anonymous"></script>
+
+<header class="header">
+   
+    <div class="inner_header">
+        <label class="logo">
+            <a href="index.php"><div class="logo_container">
+                <h1>Library<i class="fa-solid fa-book"></i> </h1>
+            </div></a>
+        </label>
+        <ul class="navigatione">
+        <a class="active" href="czytelnicy.php"> <li class="li1" > Zarządzanie czytelnikami  </li></a>
+        <a class="active" href="ksiazki.php">   <li class="li1">  Zarządzanie ksiązkami </li> </a>
+        <a class="active" href="logout.php"> <li class="li2">  Wyloguj sie </li> </a>
+            
+        </ul>
+
+    </div>
+  
+</header>
+
+
+
+
+
+
+
+<?php if (isset($_SESSION['id'])){ ?> 
+    <?php if($_SESSION['role'] == 'member'){ ?>
+    <?php include 'includes/headermember.php'; ?>
+    <?php }elseif($_SESSION['role'] == 'admin'){ ?>
+    <?php include 'includes/headeradmin.php'; ?>
+    <?php }}else{ ?> 
+    <?php include 'includes/header.php'; ?>    
+    <?php }?>
+
+
+
+
+
+
+<script src="https://kit.fontawesome.com/2a11efd126.js" crossorigin="anonymous"></script>
+
+<header class="header">
+   
+    <div class="inner_header">
+        <label class="logo">
+            <a href="index.php"><div class="logo_container">
+                <h1>Library<i class="fa-solid fa-book"></i> </h1>
+            </div></a>
+        </label>
+        <ul class="header_list">
+            <li class="list_item">
+                <a href="ksiazki.php">  Książki</a> 
+            </li> 
+            <li class="list_item"> 
+                <a class="header_a" href="czytelnik.php?id=<?= $_SESSION['id'] ?>">Profil  </a>
+            </li>
+            <li class="list_item">
+                <a class="active" href="logout.php"> Wyloguj sie  </a>
+            </li>
+            
+        </ul>
+
+    </div>
+  
+</header>

@@ -3,9 +3,6 @@
 include 'src/bootstrap.php';    
 
 
-is_admin($session->role); 
-
-
 
 ?>
 <!DOCTYPE html>
@@ -16,14 +13,18 @@ is_admin($session->role);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Kontakt</title>
+    <?php if((isset($_SESSION['id']))==true) { ?> 
+    <?php include 'includes/header-loged.php'; ?>  
+    <?php }else{ ?> 
     <?php include 'includes/header.php'; ?>    
-    
+    <?php }?>
+
 
 </head>
 <body>
 <br><br><br><br><br><br><br>
 <div class="wypozycz">
-    <div class="ramka">
+    <div class="ramkaaa">
             
     <h1>Kontakt</h1>
             <p>Dane firmy: </p>
