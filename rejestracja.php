@@ -29,18 +29,43 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $czytelnik['numer_telefonu']=$_POST['numer_telefonu'];
     $czytelnik['login']=$_POST['login'];
     $czytelnik['haslo']=$_POST['haslo'];
+
+    $errors['imie']  = is_text($czytelnik['imie'], 1, 40)
+    ? '' : 'Imie musi miec od 1-40 znaków';
+$errors['nazwisko']  = is_text($czytelnik['nazwisko'], 1, 40)
+    ? '' : 'Nazwisko musi miec od 1-40 znaków';
+$errors['numer_telefonu']  = is_text($czytelnik['numer_telefonu'], 6, 15)
+    ? '' : 'Telefon musi miec od 6-15 znaków';
+$errors['login']  = is_text($czytelnik['login'], 6, 30)
+    ? '' : 'Email moze miec od 6-30 znaków';
+$errors['haslo']  = is_text($czytelnik['haslo'], 1, 20)
+    ? '' : 'Hasło musi miec od 1-20 znaków';
+
+    
+
+$invalid = implode($errors);
+
+
+
+
+
+
    
     // $arguments=$czytelnik;   
 
     // $cms->getCzytelnik()->dodajCzytelnika($arguments,$last); 
 
-                                       
+       
+if (!$invalid) {                                  
       $result = $cms->getMember()->create($czytelnik);                                            
       if ($result === false) {                             // If result is false
-        $errors['login'] = 'blad';
+        $errors['login'] = 'Email jest zajety';
       } else {                                             // Otherwise send to login
           redirect('../logowanie.php'); 
       }
+    } else {
+      $errors['login'] = 'Email jest zajety';
+    }
   
 }
 ?>
@@ -53,6 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="photos/favicon.ico" type="image/x-icon"/>
     <title>Rejestracja</title>
     <?php if((isset($_SESSION['id']))==true) { ?> 
     <?php include 'includes/header-loged.php'; ?>  
@@ -118,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
           
           <div class="loginbutton">
-          <input type="submit" name="update" class="btnloguj" value="ZAJERESTRUJ SIE" class="btn btn-primary">
+          <input type="submit" name="update" class="btnzalogujsie" value="ZAJERESTRUJ" class="btn btn-primary">
           <br><br>
           </div>
       

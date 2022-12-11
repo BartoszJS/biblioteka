@@ -32,6 +32,13 @@ function is_member($role)
     }
 }
 
+function is_text($text, $min = 0, $max = 1000)
+{
+    $length = mb_strlen($text);
+    return ($length >= $min and $length <= $max);
+}
+
+
 
 
 function is_admin($role)
